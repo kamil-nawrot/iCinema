@@ -14,7 +14,14 @@ const genreReducer = (state = [], action) => {
     }
 }
 
-const selectedMovieReducer = (selectedMovie = null, action) => {
+const externalIdReducer = (selectedMovie = '', action) => {
+    switch (action.type) {
+        case 'FETCH_EXTERNAL_IDS': return action.payload;
+        default: return selectedMovie;
+    }
+}
+
+const selectedMovieReducer = (selectedMovie = '', action) => {
     switch (action.type) {
         case 'MOVIE_SELECTED': return action.payload;
         default: return selectedMovie;
@@ -24,5 +31,6 @@ const selectedMovieReducer = (selectedMovie = null, action) => {
 export default combineReducers({
     movies: movieReducer,
     genres: genreReducer,
+    externalId: externalIdReducer,
     selectedMovie: selectedMovieReducer
 });
