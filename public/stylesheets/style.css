@@ -13,9 +13,8 @@ body {
 
 .container {
     display: flex;
-    height: 60vh;
-    min-height: 400px;
-    max-height: 1000px;
+    flex-wrap: wrap;
+    height: 600px;
     width: 90%;
     min-width: 800px;
     max-width: 2000px;
@@ -28,8 +27,10 @@ body {
 
 .list {
     width: 30%;
+    min-width: 300px;
+    max-height: 100%;
     font-size: 1.5em;
-    overflow-y: auto;
+    overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: #960018 #222;
 }
@@ -56,6 +57,8 @@ body {
 
 .list-details .poster {
     width: 30%;
+    min-width: 360px;
+    max-height: 100%;
     margin: 0 20px;
 }
 
@@ -66,6 +69,7 @@ body {
 .info {
     flex: 1;
     margin-bottom: auto;
+    margin-right: 20px;
 }
 
 .info .title {
@@ -92,9 +96,12 @@ strong {
 }
 
 .info .overview {
-    padding-right: 20px;
     font-size: 1.1em;
     text-align: justify;
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #960018 #222;
 }
 
 .info .imdb {
@@ -109,4 +116,50 @@ strong {
     text-decoration: none;
     color: #222;
     font-size: 1.3em;
+}
+
+.empty {
+    width: 70%;
+    margin-top: 200px;
+    color: #444;
+    text-align: center;
+}
+
+@media screen and (max-width: 1120px) {
+    .container {
+        height: 300px;
+    }
+    .list {
+        width: 100%;
+    }
+    .list-details {
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 20px 0;
+        background-color: rgba(34,34,34,0.9);
+    }
+    .list-details .poster {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .body {
+        font-size: 12px;
+    }
+    .container {
+        min-width: 300px;
+    }
+    .list-details {
+        padding: 20px;
+    }
+    .list-details .poster {
+        display: none;
+    }
+    .list-details .imdb {
+        margin-bottom: 20px;
+    }
+    .list-details .imdb {
+        font-size: .7em;
+    }
 }

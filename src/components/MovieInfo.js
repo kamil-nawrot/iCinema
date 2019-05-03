@@ -37,11 +37,7 @@ class MovieInfo extends React.Component
 
     render() {
         if (!this.props.selectedMovie)  return (
-            <div>
-                <div>
-                    Choose title you're interested in from list on the left.
-                </div>
-            </div>);
+            <div className="empty"></div>);
 
         return (
             <div className="list-details">
@@ -53,7 +49,9 @@ class MovieInfo extends React.Component
                     <h1 className="title"> {this.props.selectedMovie.title} </h1>
                     <hr />
                     <div className="additional-info"> RELEASE DATE: <strong>{this.props.selectedMovie.release_date}</strong> </div>
-                    <div className="additional-info"> AVERAGE SCORE: <strong>{this.props.selectedMovie.vote_average}</strong> </div>
+                    <div className="additional-info"> 
+                        AVERAGE SCORE: <strong>{this.props.selectedMovie.vote_average}</strong> (based on {this.props.selectedMovie.vote_count} votes) 
+                    </div>
                     <div> {this.findMatchingGenres()} </div>
                     <div className="overview"> {this.props.selectedMovie.overview} </div>
                     <a href={`https://www.imdb.com/title/${this.props.externalId.imdb_id}/`} 
