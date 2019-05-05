@@ -28,6 +28,20 @@ body {
     scrollbar-color: #960018 #222;
 }
 
+.list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.list::-webkit-scrollbar-track {
+    appearance: none;
+    background-color: #222;
+}
+
+.list::-webkit-scrollbar-thumb {
+    appearance: none;
+    background-color: #960018;
+}
+
 .list-details {
     display: flex;
     width: 70%;
@@ -46,6 +60,20 @@ body {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #960018 #222;
+}
+
+.list-details::-webkit-scrollbar {
+    width: 5px;
+}
+
+.list-details::-webkit-scrollbar-track {
+    appearance: none;
+    background-color: #222;
+}
+
+.list-details::-webkit-scrollbar-thumb {
+    appearance: none;
+    background-color: #960018;
 }
 
 .item {
