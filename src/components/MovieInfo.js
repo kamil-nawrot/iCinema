@@ -40,11 +40,10 @@ class MovieInfo extends React.Component
             <div className="empty"></div>);
 
         return (
-            <div className="list-details">
-                <div className="poster">
-                    <img src={`https://image.tmdb.org/t/p/w400/${this.props.selectedMovie.poster_path}`} 
-                         alt={this.props.selectedMovie.title} />
-                </div>
+            <span className="list-details">
+                <img 
+                src={`https://image.tmdb.org/t/p/w500/${this.props.selectedMovie.poster_path}`} 
+                alt={this.props.selectedMovie.title} />
                 <div className="info">
                     <h1 className="title"> {this.props.selectedMovie.title} </h1>
                     <hr />
@@ -52,15 +51,15 @@ class MovieInfo extends React.Component
                     <div className="additional-info"> 
                         AVERAGE SCORE: <strong>{this.props.selectedMovie.vote_average}</strong> (based on {this.props.selectedMovie.vote_count} votes) 
                     </div>
-                    <div> {this.findMatchingGenres()} </div>
+                    <div className="genre-wrapper"> {this.findMatchingGenres()} </div>
                     <div className="overview"> {this.props.selectedMovie.overview} </div>
                     <a href={`https://www.imdb.com/title/${this.props.externalId.imdb_id}/`} 
                        alt={this.props.selectedMovie.title}
                        target="_blank" rel="noopener noreferrer">
-                        <div className="imdb">See on IMDb</div>
+                        <div className="imdb">See on <strong>IMDb</strong></div>
                     </a>
                 </div>
-            </div>
+            </span>
         );
     }
 }
