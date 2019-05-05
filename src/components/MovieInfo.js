@@ -37,7 +37,7 @@ class MovieInfo extends React.Component
 
     render() {
         if (!this.props.selectedMovie)  return (
-            <div className="empty"></div>);
+            <div className="empty">DUPA</div>);
 
         return (
             <span className="list-details">
