@@ -16,6 +16,7 @@ body {
     width: 90%;
     min-width: 800px;
     height: 70vh;
+    max-height: 750px;
     min-height: 300px;
     margin: 3% auto 2% auto;
 }
@@ -62,16 +63,16 @@ body {
     scrollbar-color: #960018 #222;
 }
 
-.list-details::-webkit-scrollbar {
+.list-details .info::-webkit-scrollbar {
     width: 5px;
 }
 
-.list-details::-webkit-scrollbar-track {
+.list-details .info::-webkit-scrollbar-track {
     appearance: none;
     background-color: #222;
 }
 
-.list-details::-webkit-scrollbar-thumb {
+.list-details .info::-webkit-scrollbar-thumb {
     appearance: none;
     background-color: #960018;
 }
