@@ -2,24 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchMovieList, selectMovie } from '../actions';
+import { fetchMovieList, selectMovie, selectRegion } from '../actions';
 
 class MovieList extends React.Component
 {
     componentDidMount() {
-        this.props.fetchMovieList();
+        this.props.fetchMovieList(this.props.region);
     }
     
     renderList() {
         return this.props.movies.map(movie => {
             return (
-                <div className="item" key={movie.id} onClick={e => {
+                <div className={`item ${movie.id === this.props.selectedMovie.id ? 'active' : ''}`} key={movie.id} onClick={() => {
                         this.props.selectMovie(movie);
-                        e.persist();
-                        for (let child=0; child<e.target.parentElement.children.length; child++) {
-                            e.target.parentElement.children[child].classList.remove("active");
-                        }
-                        e.target.classList.add("active");
                     }}>
                     {movie.title}
                 </div>
@@ -37,7 +32,11 @@ class MovieList extends React.Component
 }
 
 const mapStateToProps = state => { 
-    return { movies: state.movies }; 
+    return { 
+        movies: state.movies,
+        selectedMovie: state.selectedMovie,
+        region: state.region
+    }; 
 };
 
-export default withRouter(connect(mapStateToProps, { fetchMovieList, selectMovie })(MovieList));
+export default withRouter(connect(mapStateToProps, { fetchMovieList, selectMovie, selectRegion })(MovieList));

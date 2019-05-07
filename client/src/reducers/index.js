@@ -1,5 +1,12 @@
 import { combineReducers } from 'redux';
 
+const regionReducer = (region = {}, action) => {
+    switch(action.type) {
+        case 'REGION_SELECTED': return action.payload;
+        default: return region;
+    }
+}
+
 const movieReducer = (state = [], action) => {
     switch (action.type) {
         case 'FETCH_LIST': return action.payload;
@@ -29,6 +36,7 @@ const selectedMovieReducer = (selectedMovie = '', action) => {
 }
 
 export default combineReducers({
+    region: regionReducer,
     movies: movieReducer,
     genres: genreReducer,
     externalId: externalIdReducer,

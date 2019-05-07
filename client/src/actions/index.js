@@ -1,7 +1,19 @@
 import MovieDatabase from '../apis/MovieDatabase';
 
-export const fetchMovieList = () => async dispatch => {
-    const response = await MovieDatabase.get('/movie/now_playing');
+export const selectRegion = (region, lang) => {
+    return {
+        type: 'REGION_SELECTED',
+        payload: { region, lang }
+    }
+} 
+
+export const fetchMovieList = (locale) => async dispatch => {
+    const response = await MovieDatabase.get('/movie/now_playing', {
+        params: {
+            region: locale.region,
+            language: locale.lang
+        }
+    });
     dispatch({ type: 'FETCH_LIST', payload: response.data.results });
 };
 

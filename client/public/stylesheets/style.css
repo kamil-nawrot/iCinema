@@ -86,11 +86,6 @@ body {
     transition: all 1s;
 }
 
-.active {
-    background-color: #960018;
-    color: #DDD;
-}
-
 .item:hover {
     background-color: #630010;
     color: #DDD;
@@ -189,4 +184,20 @@ a {
 .option h3 {
     font-size: 1.5em;
     margin-top: 1em;
+}
+
+.option-button {
+    margin: 4em .5em;
+    border: 0;
+    width: 250px;
+    padding: 1em;
+    font-size: 1.5em;
+    background-color: #222;
+    color: #CCC;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #960018;
+    color: #DDD;
 }
