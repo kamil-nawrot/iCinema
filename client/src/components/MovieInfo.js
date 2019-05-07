@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { selectMovie, fetchGenreList, fetchExternalId } from '../actions';
 
@@ -13,7 +14,6 @@ class MovieInfo extends React.Component
         if (!this.props.selectedMovie) return;
         if (this.props.selectedMovie.id !== prevProps.selectedMovie.id) {
             this.props.fetchExternalId(this.props.selectedMovie.id);
-            console.log(this.props.externalId);
         }
     }
 
@@ -72,4 +72,4 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps, { selectMovie, fetchGenreList, fetchExternalId })(MovieInfo);
+export default withRouter(connect(mapStateToProps, { selectMovie, fetchGenreList, fetchExternalId })(MovieInfo));

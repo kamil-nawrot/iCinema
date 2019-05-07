@@ -1,15 +1,20 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import MovieList from './MovieList';
-import MovieInfo from './MovieInfo';
+import RegionSelection from './RegionSelection';
+import MovieSelection from './MovieSelection';
+import Navigation from './Navigation';
 
 class App extends React.Component
 {
     render() {
         return (
-            <div className="container">
-                <MovieList />
-                <MovieInfo />
+            <div>
+                <Switch>
+                  <Route path="/region" exact component={RegionSelection} />
+                  <Route path="/movies" exact component={MovieSelection} />                    
+                </Switch>
+                <Navigation />
             </div>
         );
     }
