@@ -35,6 +35,13 @@ export const selectMovie = (movie) => {
     }
 }
 
+export const selectPlace = (place) => {
+    return {
+        type: 'PLACE_SELECTED',
+        payload: place
+    }
+}
+
 export const fetchSchedule = (movieId = null) => async dispatch => {
     const response = await LocalServer.get(`/schedule/${movieId}`);
     dispatch({ type: 'FETCH_SCHEDULE', payload: response.data });
