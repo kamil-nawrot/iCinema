@@ -33,3 +33,10 @@ export const selectMovie = (movie) => {
         payload: movie
     }
 }
+
+export const selectPlace = (place) => {
+    return {
+        type: 'PLACE_SELECTED',
+        payload: place
+    }
+}
