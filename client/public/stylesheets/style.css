@@ -208,3 +208,20 @@ a {
     background-color: #960018;
     color: #DDD;
 }
+
+/* selectPlace styles */
+.chairgrid{
+    display: grid;
+}
+
+.chairchecked{
+    background-image: url("../img/chairchecked.png");
+}
+
+.chairfree {
+    background-image: url("../img/chairfree.png");
+}
+
+.chairreserved {
+    background-image: url("../img/chairreserved.png");
+}
