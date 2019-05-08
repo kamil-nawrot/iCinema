@@ -8,7 +8,11 @@ class ScheduleSelection extends React.Component
 {  
     componentDidMount() {
         if (this.props.selectedMovie) this.props.fetchSchedule(this.props.selectedMovie.id);
-    } 
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.selectedMovie !== this.props.selectedMovie)   fetchSchedule(this.props.selectedMovie.id);
+    }
 
     renderSchedule() {
         return this.props.schedule.map(showing => {
@@ -23,7 +27,6 @@ class ScheduleSelection extends React.Component
     }
 
     render() {
-        console.log(this.props.schedule);
         return (
             <div className="container">
                 <div className="option">

@@ -19,6 +19,23 @@ body {
     max-height: 750px;
     min-height: 300px;
     margin: 3% auto 2% auto;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #960018 #222;
+}
+
+.container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.container::-webkit-scrollbar-track {
+    appearance: none;
+    background-color: #222;
+}
+
+.container::-webkit-scrollbar-thumb {
+    appearance: none;
+    background-color: #960018;
 }
 
 .list {
@@ -171,6 +188,8 @@ a {
 }
 
 .option {
+    display: flex;
+    flex-direction: column;
     width: 80%;
     margin: 2em auto;
     text-align: center;
@@ -187,14 +206,21 @@ a {
 }
 
 .option-button {
+    flex: 0 1;
     margin: .5em;
     border: 0;
-    width: 250px;
+    min-width: 250px;
     padding: 1em;
     font-size: 1.5em;
     background-color: #222;
     color: #CCC;
     cursor: pointer;
+    transition: all 1s;
+}
+
+.option-button:hover {
+    background-color: #630010;
+    color: #DDD;
 }
 
 .option-wrapper {

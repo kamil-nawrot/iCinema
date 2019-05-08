@@ -31,7 +31,6 @@ app.get('/api/schedule/:movie_id', (req, res) => {
         schedule.push(date);
     }
     schedule = schedule.sort((a, b) => a.valueOf() - b.valueOf());
-    console.log(schedule);
     res.send(schedule);
 });
 
