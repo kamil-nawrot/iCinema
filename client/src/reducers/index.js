@@ -35,10 +35,26 @@ const selectedMovieReducer = (selectedMovie = '', action) => {
     }
 }
 
+const scheduleReducer = (schedule = [], action) => {
+    switch (action.type) {
+        case 'FETCH_SCHEDULE': return action.payload;
+        default: return schedule;
+    }
+}
+
+const selectedShowingReducer = (selectedShowing = '', action) => {
+    switch (action.type) {
+        case 'SHOWING_SELECTED': return action.payload;
+        default: return selectedShowing;
+    }
+}
+
 export default combineReducers({
     region: regionReducer,
     movies: movieReducer,
     genres: genreReducer,
     externalId: externalIdReducer,
-    selectedMovie: selectedMovieReducer
+    selectedMovie: selectedMovieReducer,
+    schedule: scheduleReducer,
+    selectedShowing: selectedShowingReducer
 });

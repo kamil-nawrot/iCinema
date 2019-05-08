@@ -1,4 +1,5 @@
 import MovieDatabase from '../apis/MovieDatabase';
+import LocalServer from '../apis/LocalServer';
 
 export const selectRegion = (region, lang) => {
     return {
@@ -31,5 +32,17 @@ export const selectMovie = (movie) => {
     return {
         type: 'MOVIE_SELECTED',
         payload: movie
+    }
+}
+
+export const fetchSchedule = (movieId = null) => async dispatch => {
+    const response = await LocalServer.get(`/schedule/${movieId}`);
+    dispatch({ type: 'FETCH_SCHEDULE', payload: response.data });
+}
+
+export const selectShowing = (showing) => {
+    return {
+        type: 'SHOWING_SELECTED',
+        payload: showing
     }
 }

@@ -5,27 +5,31 @@ import { selectRegion } from '../actions';
 
 class RegionSelection extends React.Component
 {
+    renderOptions() {
+        const locales = [['PL', 'pl-PL', 'Poland'], 
+                         ['us', 'en-US', 'United States'],
+                         ['gb', 'en-GB', 'Great Britain'],
+                         ['fr', 'fr-FR', 'France'],
+                         ['es', 'es-ES', 'Spain'],
+                         ['de', 'de-DE', 'Germany'],
+                         ['jp', 'jp-JP', 'Japan']];
+        return locales.map(locale => {
+            return (
+                <button key={locale[1]} className={`option-button ${this.props.region.region === locale[0] ? 'active' : '' }`} onClick={() => {
+                    this.props.selectRegion(locale[0], locale[1]);
+                }}>{locale[2]}</button>
+            );
+        })
+    }
+
     render() {
         return (
             <div className="container" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
                 <div className="option">
-                    <h2> Welcome on our online cinema tickets booking app </h2>
+                    <h2> Welcome to our online cinema tickets booking app </h2>
                     <h3> Please select your region and language and we can proceed </h3>
-                    <div>
-                        <button className={`option-button ${this.props.region.region === 'PL' ? 'active' : '' }`} onClick={e => {
-                            this.props.selectRegion('PL', 'pl-PL');
-                            for (let child=0; child<e.target.parentElement.children.length; child++) {
-                                e.target.parentElement.children[child].classList.remove("active");
-                            }
-                            e.target.classList.add("active");
-                        }}>POLAND</button>
-                        <button className={`option-button ${this.props.region.region === 'US' ? 'active' : '' }`} onClick={e => {
-                            this.props.selectRegion('US', 'en-US');
-                            for (let child=0; child<e.target.parentElement.children.length; child++) {
-                                e.target.parentElement.children[child].classList.remove("active");
-                            }
-                            e.target.classList.add("active");
-                        }}>UNITED STATES</button>
+                    <div className="option-wrapper">
+                        {this.renderOptions()}
                     </div>
                 </div>
             </div>

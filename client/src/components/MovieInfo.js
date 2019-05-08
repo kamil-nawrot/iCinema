@@ -15,6 +15,12 @@ class MovieInfo extends React.Component
         if (this.props.selectedMovie.id !== prevProps.selectedMovie.id) {
             this.props.fetchExternalId(this.props.selectedMovie.id);
         }
+        for (let movie of this.props.movies) {
+            if (movie.title === this.props.selectedMovie.title &&
+                movie.id === this.props.selectedMovie.id &&
+                movie.overview === this.props.selectedMovie.overview)   return;
+        }
+        this.props.selectMovie('');
     }
 
     findMatchingGenres() {
@@ -65,7 +71,8 @@ class MovieInfo extends React.Component
 }
 
 const mapStateToProps = state => {
-    return { 
+    return {
+        movies: state.movies, 
         selectedMovie: state.selectedMovie,
         genres: state.genres,
         externalId: state.externalId
