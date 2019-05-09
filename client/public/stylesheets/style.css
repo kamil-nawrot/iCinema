@@ -141,7 +141,8 @@ body {
 }
 
 .empty {
-    width: 70%;
+    /* width: 70%; */
+    flex-grow: 1;
     height: 100%;
     padding-top: 100px;
     background-color: rgba(34,34,34,0.3);
@@ -171,7 +172,7 @@ a {
     flex: 1;
     padding: 10px 0;
     font-family: 'Lato', sans-serif;
-    font-size: 1.2em;
+    font-size: .9em;
     border: 0;
     color: #FFF;
 }
@@ -190,6 +191,7 @@ a {
 .option {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     width: 80%;
     margin: 2em auto;
     text-align: center;
@@ -233,6 +235,7 @@ a {
 .active {
     background-color: #960018;
     color: #DDD;
+    opacity: 1;
 }
 
 /* selectPlace styles */

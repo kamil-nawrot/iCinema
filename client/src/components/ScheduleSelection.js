@@ -15,6 +15,12 @@ class ScheduleSelection extends React.Component
     }
 
     renderSchedule() {
+        if (!this.props.selectedMovie)  
+            return (
+                <div className="empty" style={{ backgroundColor: "rgba(0,0,0,0)" }}> 
+                    You have to choose movie first
+                </div>
+            );
         return this.props.schedule.map(showing => {
             return (
                 <div className={`option-button ${this.props.selectedShowing === showing ? 'active' : ''}`} key={showing} onClick={() => {
@@ -28,7 +34,7 @@ class ScheduleSelection extends React.Component
 
     render() {
         return (
-            <div className="container">
+            <div className="container" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
                 <div className="option">
                     {this.renderSchedule()}
                 </div>

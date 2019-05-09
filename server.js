@@ -3,7 +3,7 @@ const faker = require('faker');
 const bodyParser = require('body-parser');
 const app = express();
 
-const { getAll, add } = require('./db');
+const { getBookings, addBooking } = require('./db');
 
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
@@ -39,14 +39,9 @@ app.get('/api/schedule/:movie_id', (req, res) => {
     res.send(schedule);
 });
 
-app.get('/api/bookings', (req, res, next) => {
-    getAll();
-});
+app.get('/api/bookings', getBookings);
 
-app.post('/api/bookings', (req, res, next) => {
-    res.status(200).send(req.body);
-    add(req.body);
-});
+app.post('/api/bookings', addBooking);
 
 app.listen(3001, () => {
     console.log('Server listening on port 3001...');

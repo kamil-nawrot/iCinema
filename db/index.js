@@ -6,26 +6,25 @@ mongoose.connect(dbUri, { useNewUrlParser: true })
     .then(() => console.log('Successfully connected to database...'))
     .catch(err => console.error('Cannot connect to database', err));
 
-async function getAll() {
+async function getBookings(req, res) {
     const bookings = await Booking.find();
-    console.log(bookings);
     res.send(results);
 }
 
-async function add(booking) {
-    //console.log(booking);
+async function addBooking(req, res) {
     const newBooking = new Booking({
         movie: {
-            title: booking.movie.title,
-            id: booking.movie.id
+            title: req.body.movie.title,
+            id: req.body.movie.id
         },
         region: {
-            region: booking.region.region,
-            lang: booking.region.lang
+            region: req.body.region.region,
+            lang: req.body.region.lang
         },
-        showing: booking.showing
+        showing: req.body.showing
     });
     const result = await newBooking.save();
+    res.send(result);
 }
 
-module.exports = { getAll, add };
+module.exports = { getBookings, addBooking };
