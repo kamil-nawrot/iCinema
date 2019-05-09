@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# iCinema - webapp for booking cinema tickets online
 
 ## Available Scripts
 

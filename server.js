@@ -1,6 +1,9 @@
 const express = require('express');
 const faker = require('faker');
+const bodyParser = require('body-parser');
 const app = express();
+
+const { getAll, add } = require('./db');
 
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
@@ -8,6 +11,8 @@ app.use((req, res, next) => {
     res.append('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
+
+app.use(bodyParser.json());
 
 app.get('/api/schedule/:movie_id', (req, res) => {
     let schedule = [];
@@ -32,6 +37,15 @@ app.get('/api/schedule/:movie_id', (req, res) => {
     }
     schedule = schedule.sort((a, b) => a.valueOf() - b.valueOf());
     res.send(schedule);
+});
+
+app.get('/api/bookings', (req, res, next) => {
+    getAll();
+});
+
+app.post('/api/bookings', (req, res, next) => {
+    add(req.body);
+    res.status(200).send(req.body);
 });
 
 app.listen(3001, () => {

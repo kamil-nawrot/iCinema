@@ -13,7 +13,7 @@ class App extends React.Component
         return (
             <div>
                 <Switch>
-                  <Route path="/region" component={RegionSelection} />
+                  <Route path="/" exact component={RegionSelection} />
                   <Route path="/movies" exact component={MovieSelection} />
                   <Route path="/schedule" exact component={ScheduleSelection} />  
                   <Route path="/seats" exact component={PlaceSelection} />                  

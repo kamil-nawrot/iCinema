@@ -7,7 +7,7 @@ class Navigation extends React.Component
     render() {
         return (
             <div className="nav">                    
-                <NavLink to="/region" className="nav-button" activeStyle={{backgroundColor: '#960018' }}>REGION</NavLink>
+                <NavLink to="/" exact className="nav-button" activeStyle={{backgroundColor: '#960018' }}>REGION</NavLink>
                 <NavLink to="/movies" className="nav-button" activeStyle={{backgroundColor: '#960018' }}>MOVIE</NavLink>
                 <NavLink to="/schedule" className="nav-button" activeStyle={{backgroundColor: '#960018' }}>SCHEDULE</NavLink>
                 <NavLink to="/tickets" className="nav-button" activeStyle={{backgroundColor: '#960018' }}>TICKETS</NavLink>

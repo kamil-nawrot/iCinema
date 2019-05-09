@@ -19,10 +19,13 @@
   },
   "homepage": "https://github.com/kamil-nawrot/iCinema#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.16.4",
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "mongoose": "^5.5.6"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0"
   }
 }
