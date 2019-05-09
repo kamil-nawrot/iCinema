@@ -11,8 +11,7 @@ class RegionSelection extends React.Component
                          ['gb', 'en-GB', 'Great Britain'],
                          ['fr', 'fr-FR', 'France'],
                          ['es', 'es-ES', 'Spain'],
-                         ['de', 'de-DE', 'Germany'],
-                         ['jp', 'jp-JP', 'Japan']];
+                         ['de', 'de-DE', 'Germany']];
         return locales.map(locale => {
             return (
                 <button key={locale[1]} className={`option-button ${this.props.region.region === locale[0] ? 'active' : '' }`} onClick={() => {

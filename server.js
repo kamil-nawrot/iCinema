@@ -44,8 +44,8 @@ app.get('/api/bookings', (req, res, next) => {
 });
 
 app.post('/api/bookings', (req, res, next) => {
-    add(req.body);
     res.status(200).send(req.body);
+    add(req.body);
 });
 
 app.listen(3001, () => {
