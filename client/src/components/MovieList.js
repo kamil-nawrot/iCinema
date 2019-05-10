@@ -9,7 +9,7 @@ class MovieList extends React.Component
     componentDidMount() {
         this.props.fetchMovieList(this.props.region);
     }
-    
+
     renderList() {
         return this.props.movies.map(movie => {
             return (

@@ -8,7 +8,6 @@ class MovieInfo extends React.Component
 {   
     componentDidMount() {
         this.props.fetchGenreList();
-        console.log(this.props.selectedMovie);
     }
 
     componentDidUpdate(prevProps) {
