@@ -247,10 +247,109 @@ a {
     background-image: url("../img/chairchecked.png");
 }
 
-.chairfree {
+.chairavailable {
     background-image: url("../img/chairfree.png");
 }
 
 .chairreserved {
     background-image: url("../img/chairreserved.png");
+}
+
+.chairrow{
+    background-color: black;
+}
+
+.big-con {
+    height: calc(100vh - 80px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.small-con {
+    width: 50%;
+    min-width: 500px;
+    height: 80%;
+    min-height: 500px;
+}
+
+.choose-header {
+    height: 100px;
+    background-color: #1a237e;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.choose-header-text {
+    padding-top: 7px;
+    margin: 0;
+}
+
+.seats-big-con {
+    background-color: #1a237e;
+    height: 450px;
+    margin-bottom: 20px;
+    max-height: 70%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seats-con {
+    display: grid;
+    grid-template-columns: repeat(8, 30px);
+    grid-template-rows: repeat(6, 30px);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+}
+
+.seat-big {
+    height: 100%
+}
+
+.seat-small {
+    margin: 20px;
+}
+
+.choose-seat {
+    display: flex;
+    justify-content: space-around;
+}
+
+.choose-seat>div {
+    display: flex;
+    margin-top: 20px;
+}
+
+.seat-text {
+    margin: 0 0 .46rem 0;
+}
+
+.seat {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+
+.reserved {
+    background-color: grey;
+}
+
+.available {
+    background-color: green;
+}
+
+.choosen {
+    background-color: orange;
+}
+
+.screen {
+    margin: 20px 0;
+    padding: 5px;
+    width: 40%;
+    background-color: grey;
+    box-sizing: content-box;
+    border-radius: 2px;
 }
