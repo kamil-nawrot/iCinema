@@ -59,7 +59,7 @@ class PlaceSelection extends React.Component
         return (
             <div> 
                 <h1> Select your place! </h1> 
-                <DrawGrid place={this.state.place}
+                <ChairGrid place={this.state.place}
                           available={this.state.placeAvailable}
                           reserved={this.state.placeReserved}
                           checked={this.state.placeChecked}
@@ -69,29 +69,21 @@ class PlaceSelection extends React.Component
     }
 }
     
-class DrawGrid extends React.Component
+class ChairGrid extends React.Component
 {
     render() {
         return (
-            <div className="container">
-                <h2> </h2> 
-                <table className="grid"> 
-                    <tbody>   
-                        <tr> 
+            <div className = "cinema">
+                        <div className = "chairgrid">
                             {this.props.place.map(row => 
-                                <td className={this.props.checked.indexOf(row) > -1 ?'chairchecked' :
-                                               this.props.available.indexOf(row) > -1 ?'chairavailable' :
-                                               'chairreserved'}
-                                    key={row}
+                                <div className={this.props.checked.indexOf(row) > -1 ?'chairchecked' :
+                                               this.props.available.indexOf(row) > -1 ?'chairavailable' :'chairreserved'}
+                                    //key={row}
                                     onClick={ e => this.onClickPlace(row)}>
-                                    {row} 
-                                </td>)
+                                    <span> {row} </span>
+                                </div>)
                             } 
-                        </tr>
-                    </tbody> 
-                </table> 
-                <AvailableList available={this.props.available} /> 
-                <ReservedList reserved={this.props.reserved} /> 
+                        </div>
                 <CheckedList checked={this.props.checked} /> 
             </div> 
         )
@@ -101,51 +93,20 @@ class DrawGrid extends React.Component
         this.props.onClickChoice(place);
     }
 }
-                                
-class AvailableList extends React.Component {
-    render() {
-        const seatCount = this.props.available.length;
-        return ( 
-            <div>
-                <h4> Available Chairs: ({seatCount === 0 ? 'No chairs available' : seatCount}) </h4> 
-                <ul> {this.props.available.map(res => 
-                    <li key={res}> 
-                        {res} 
-                    </li>)} 
-                </ul> 
-            </div >
-        )
-    }
-}
                                     
 class CheckedList extends React.Component
 {
     render() {
         return ( 
             <div>
-                <h4> Your chairs: ({this.props.checked.length}) </h4>
-                <ul> {this.props.checked.map(res => 
-                    <li key={res}>
-                        {res} 
-                    </li>)}  
-                </ul> 
+                <h4> Your chairs: </h4>
+                <div> {this.props.checked.map(res => 
+                    <span key={res} className='seats'>
+                        {res}
+                    </span>)}  
+                </div> 
+                <h4>The number of tickets: {this.props.checked.length} </h4>
             </div>
-        )
-    }
-}
-                                
-class ReservedList extends React.Component 
-{
-    render() {
-        return ( 
-            <div>
-                <h4> Reserved Chairs: ({this.props.reserved.length}) </h4> 
-                <ul> {this.props.reserved.map(res => 
-                    <li key={res}>
-                        {res} 
-                    </li>)}  
-                </ul> 
-            </div >
         )
     }
 }
