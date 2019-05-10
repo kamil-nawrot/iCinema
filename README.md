@@ -1,68 +1,17 @@
 # iCinema - webapp for booking cinema tickets online
+Find an alluring movie which is currently displayed on theatres, specify showtime, type and quantity of tickets, choose best seats, provide a few information about yourself - that's all you have to do to make a booking in **iCinema**. It provides both UI and server with MongoDB connected. Main goal was to simulate real-world booking proccess, taking care of every aspect of this operation.
 
-## Available Scripts
+# Features
+## Movie Selection
+To find all movies now being played in theatres, app make request to [The Movie Db API](https://www.themoviedb.org/documentation/api), to its `/now-playing` endpoint. Response includes all information needed and it's also used to generate view with movie details.
 
-In the project directory, you can run:
+## Schedule
+We don't have access to any cinema schedule, so the only way to simulate it was to fake it. All dates and times are being randomized on server-side on the runtime with (faker)[https://github.com/marak/Faker.js/]. There's also basic validation of the generated showtimes implemented to check if everything looks real.
 
-### `npm start`
+# Built with
+* [React](https://reactjs.org/) and [create-react-app](https://github.com/facebook/create-react-app) for user interface
+* [node.js](https://nodejs.org) with [Express](https://expressjs.com) for backend server with basic API
+* [MongoDB](https://mongodb.com) for storing information about all reservations
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Available scripts
+Project contains both React client application and Node.js server, so first you need to install missing dependencies in root directory and in `client`. After it's finished, you can run whole app by simply running `npm start` in root directory. If you only want to run client-side or server-side, you can use `npm run client` and `npm run server`.
