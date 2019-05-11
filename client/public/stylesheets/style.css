@@ -367,30 +367,28 @@ a {
 
 /* selectPlace styles */
 
-h2 {
+.selectplace {
     color: #444;
     font-size: 1.8em;
     text-align: center;
     box-sizing: border-box;
-    
+    padding-top:20px;
 }
 
 .container1 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     width: 90%;
-   /* min-width: 800px;*/
     height: 70vh;
-   /* max-height: 750px;*/
-    min-height: 300px;
     margin: 3% auto 2% auto;
-    overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #960018 #222;
     background-color: rgba(34, 34, 34, 0.3);
+    overflow: auto;
+    position:relative;
 }
 
 .container1::-webkit-scrollbar {
@@ -408,19 +406,28 @@ h2 {
 }
 
 .cinema {
-    width: 60vw;
-    margin: 5vw 20vw;
+    width: 50vw;
+    margin: 1vw 25vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
+.screen{
+    padding:5px;
+    width: 50vw;
+    margin-bottom: 20px;
+    background-color: rgba(180, 180, 180, 0.3);
+    box-sizing: border-box;
+    text-align: center;
+}
 .chairgrid {
     display: grid;
     width: 100%;
-    grid-template-columns: 6vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw;
-    grid-template-rows: 6vw 6vw 6vw 6vw 6vw 6vw;
+    grid-template-columns: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw;
+    grid-template-rows: 5vw 5vw 5vw 5vw 5vw 5vw;
+    padding-bottom: 1vw;
+    border-bottom: solid 1px #aaa;
 }
 
 .chairgrid div:hover {
@@ -435,18 +442,6 @@ h2 {
     justify-content: center;
     align-items: center;
 }
-
-/*.chairchecked::after {
-    content: 'SELECTED'
-}
-
-.chairavailable::after {
-    content: 'AVAILABLE'
-}
-
-.chairreserved::after {
-    content: 'RESERVED'
-}*/
 
 .seats::after {
     content: ' '
@@ -479,7 +474,6 @@ h2 {
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 
 /* Personal info styling */
 
@@ -540,5 +534,5 @@ h2 {
 }
 
 #personal-info>div>input:focus{
-    border: 2px solid #960018;s
+    border: 2px solid #960018;
 }
