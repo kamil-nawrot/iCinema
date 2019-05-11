@@ -141,7 +141,6 @@ body {
 .container {
     display: flex;
     width: 90%;
-    min-width: 800px;
     height: 70vh;
     max-height: 750px;
     min-height: 300px;
@@ -481,18 +480,20 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    justify-content: center;
 }
 
 #personal-info-box h1{
+    text-align: center;
     color: #DDD;
     font-size: 1.8em;
     margin: 5%;
 }
 
 #personal-info-box h3 {
+    text-align: center;
     color: #960018;
-    margin: 2%;
+    margin: 2% 5% 5% 5%;
 }
 
 #personal-info{
@@ -505,6 +506,7 @@ a {
 #personal-info>div{
     margin: 10px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -514,9 +516,18 @@ a {
 }
 
 #personal-info>div>label{
+    margin: 5px;
     font-size: 1.2em;
     text-align: right;
     width: 180px;
+    min-width: 100px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 375px){
+    #personal-info>div>label {
+        text-align: center;
+        margin: 10px;
+    }
 }
 
 #personal-info>div>input{
