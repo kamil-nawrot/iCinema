@@ -59,6 +59,7 @@ class PlaceSelection extends React.Component
         return (
             <div className = "container1"> 
                 <h2> Select your place! </h2>
+                <Legend/>
                 <ChairGrid place={this.state.place}
                           available={this.state.placeAvailable}
                           reserved={this.state.placeReserved}
@@ -74,17 +75,18 @@ class ChairGrid extends React.Component
     render() {
         return (
             <div className = "cinema">
+            <h4 className="screen"> SCREEN </h4>
                         <div className = "chairgrid">
-                            {this.props.place.map(row => 
-                                <div className={this.props.checked.indexOf(row) > -1 ?'chairchecked' :
-                                               this.props.available.indexOf(row) > -1 ?'chairavailable' :'chairreserved'}
-                                    key={row}
-                                    onClick={ e => this.onClickPlace(row)}>
-                                    <span> {row} </span>
+                            {this.props.place.map(place => 
+                                <div className={this.props.checked.indexOf(place) > -1 ?'chairchecked' :
+                                               this.props.available.indexOf(place) > -1 ?'chairavailable' :'chairreserved'}
+                                    key={place}
+                                    onClick={ e => this.onClickPlace(place)}>
+                                    <span> {place} </span>
                                 </div>)
                             } 
                         </div>
-                <CheckedList checked={this.props.checked} /> 
+                        <CheckedList checked = {this.props.checked}/> 
             </div> 
         )
     }
@@ -98,20 +100,27 @@ class CheckedList extends React.Component
 {
     render() {
         return ( 
-            <div>
-                <h4> Your chairs: </h4>
-                <div> {this.props.checked.map(res => 
-                    <span key={res} className='seats'>
-                        {res}
-                    </span>)}  
-                </div> 
-                <h4>The number of tickets: {this.props.checked.length} </h4>
-                <div className='legend'>
-                    <div>Legend:</div>
-                    <span className = 'chairchecked'> Your Chairs </span>
-                    <span className = 'chairavailable'> Available </span>
-                    <span className = 'chairreserved'> Reserved </span>
-                </div>
+            <div className="counting">
+                <h4 className='left'> <span className = "boldtext"> The number of tickets: </span> {
+            this.props.checked.length
+            } </h4>
+                <h4 className='right'> <span className = "boldtext"> Your chairs: </span> <span> {
+                        this.props.checked.map(res =>
+                            <span key = {res}
+                            className = 'seats'> {res} </span>)} </span></h4>
+            </div>
+        )
+    }
+}
+
+class Legend extends React.Component {
+    render() {
+        return (<div className = 'legend'>
+            <span></span>
+            <span className = 'chairchecked'> Chosen </span> 
+            <span className = 'chairavailable'> Available </span>
+            <span className = 'chairreserved' > Reserved </span>
+            <span></span>
             </div>
         )
     }
