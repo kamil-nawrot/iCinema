@@ -58,7 +58,7 @@ class PlaceSelection extends React.Component
     render() {
         return (
             <div className = "container1"> 
-                <h2> Select your place! </h2>
+                <h2 className = "selectplace"> Select your place! </h2>
                 <Legend/>
                 <ChairGrid place={this.state.place}
                           available={this.state.placeAvailable}

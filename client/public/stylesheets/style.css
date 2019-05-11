@@ -367,27 +367,28 @@ a {
 
 /* selectPlace styles */
 
-h2 {
+.selectplace {
     color: #444;
     font-size: 1.8em;
     text-align: center;
     box-sizing: border-box;
+    padding-top:20px;
 }
 
 .container1 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     width: 90%;
     height: 70vh;
     margin: 3% auto 2% auto;
-    overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #960018 #222;
     background-color: rgba(34, 34, 34, 0.3);
-    overflow-y: scroll;
+    overflow: auto;
+    position:relative;
 }
 
 .container1::-webkit-scrollbar {
