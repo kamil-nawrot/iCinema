@@ -479,3 +479,66 @@ h2 {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+
+/* Personal info styling */
+
+#personal-info-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#personal-info-box h1{
+    color: #DDD;
+    font-size: 1.8em;
+    margin: 5%;
+}
+
+#personal-info-box h3 {
+    color: #960018;
+    margin: 2%;
+}
+
+#personal-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#personal-info>div{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#personal-info>div>*{
+    flex: 1;
+    margin: 0 10px;
+}
+
+#personal-info>div>label{
+    font-size: 1.2em;
+    text-align: right;
+    width: 180px;
+}
+
+#personal-info>div>input{
+    background-color: #222;
+    border: 2px solid #222;
+    height: 25px;
+    padding: 3px 8px;
+    font-size: 1em;
+    color: #888;
+    transition: all 0.2s ease-out;
+}
+
+#personal-info>div>input:hover{
+    border: 2px solid #960018;
+}
+
+#personal-info>div>input:focus{
+    border: 2px solid #960018;s
+}

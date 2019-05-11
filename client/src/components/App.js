@@ -5,6 +5,7 @@ import RegionSelection from './RegionSelection';
 import MovieSelection from './MovieSelection';
 import ScheduleSelection from './ScheduleSelection';
 import PlaceSelection from './PlaceSelection';
+import PersonalInfo from './PersonalInfo';
 import Navigation from './Navigation';
 
 class App extends React.Component
@@ -16,7 +17,8 @@ class App extends React.Component
                   <Route path="/" exact component={RegionSelection} />
                   <Route path="/movies" exact component={MovieSelection} />
                   <Route path="/schedule" exact component={ScheduleSelection} />  
-                  <Route path="/seats" exact component={PlaceSelection} />                  
+                  <Route path="/seats" exact component={PlaceSelection} />
+                  <Route path="/personal-details" exact component={PersonalInfo} />                  
                 </Switch>
                 <Navigation />
             </div>
