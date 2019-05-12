@@ -57,14 +57,18 @@ class PlaceSelection extends React.Component
 
     render() {
         return (
-            <div className = "container1"> 
+            <div className = "container1">
+                <div className = "list1"> 
                 <h2 className = "selectplace"> Select your place! </h2>
-                <Legend/>
+                 <Legend /> 
+                 </div>
+                 <div className='empty1'>
                 <ChairGrid place={this.state.place}
                           available={this.state.placeAvailable}
                           reserved={this.state.placeReserved}
                           checked={this.state.placeChecked}
                           onClickChoice={this.onClickChoice.bind(this)}/> 
+                          </div>
             </div>
         )
     }
