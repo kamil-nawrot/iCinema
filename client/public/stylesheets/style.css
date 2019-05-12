@@ -481,20 +481,20 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 10px;
 }
 
 #personal-info-box h1{
     text-align: center;
     color: #DDD;
     font-size: 1.8em;
-    margin: 20px 20px 30px 20px;
-    
+    margin: 10px 20px 30px 20px;
 }
 
 #personal-info-box h3 {
     text-align: center;
     color: #960018;
-    margin: 10px 20px 20px 20px;
+    margin: 10px 20px;
 }
 
 #personal-info{
@@ -512,7 +512,6 @@ a {
 }
 
 #personal-info>div>*{
-    
     margin: 0 10px;
 }
 
@@ -522,11 +521,16 @@ a {
     font-size: 1.2em;
     text-align: right;
     width: 140px;
+    min-width: 105px;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 375px){
+@media only screen and (min-width: 0px) and (max-width: 381px){
     #personal-info>div>label {
         text-align: center;
+        margin: 10px;
+    }
+
+    #personal-info-box h1 {
         margin: 10px;
     }
 }
