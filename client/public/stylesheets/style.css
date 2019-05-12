@@ -583,11 +583,11 @@ a {
     margin: 5px;
     font-size: 1.2em;
     text-align: right;
-    width: 140px;
-    min-width: 105px;
+    width: 210px;
+    min-width: 130px;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 381px){
+@media only screen and (min-width: 0px) and (max-width: 409px){
     #personal-info>div>label {
         text-align: center;
         margin: 10px;
@@ -595,6 +595,10 @@ a {
 
     #personal-info-box h1 {
         margin: 10px;
+    }
+
+    #personal-info>div {
+        justify-content: center;
     }
 }
 
