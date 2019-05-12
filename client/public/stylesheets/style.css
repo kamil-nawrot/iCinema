@@ -366,22 +366,14 @@ a {
 
 /* selectPlace styles */
 
-.empty1 {
-    /* width: 70%; */
-    flex-grow: 1;
-    height: 100%;
-    width: 70%;
-    padding-top: 100px;
-    background-color: rgba(34, 34, 34, 0.3);
-    color: #444;
-    text-align: center;
-    box-sizing: border-box;
-}
-
 .list1 {
-    width: 25%;
+    width: 20%;
     height: 100%;
-    margin-right: 5%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
 
 .selectplace {
@@ -389,7 +381,7 @@ a {
     font-size: 1.8em;
     text-align: center;
     box-sizing: border-box;
-    padding-top: 20px;
+    padding: 20px 0;
 }
 
 .container1 {
@@ -423,29 +415,32 @@ a {
 }
 
 .cinema {
+    height: 100%;
     width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgba(34, 34, 34, 0.3);
+    box-sizing: border-box;
 }
 
 .screen {
     padding: 3px;
-    width: 30vw;
+    width: 50vw;
     margin-bottom: 10px;
     background-color: rgba(180, 180, 180, 0.3);
     box-sizing: border-box;
     text-align: center;
+    box-shadow: inset 10px 10px 5px 0px rgba(255, 255, 255, .2);
+    border-radius: 4px;
 }
 
 .chairgrid {
     display: grid;
     width: 100%;
-    grid-template-columns: 3vw 3vw 3vw 3vw 3vw 3vw 3vw 3vw 3vw 3vw;
-    grid-template-rows: 3vw 3vw 3vw 3vw 3vw 3vw;
-    padding-bottom: .5vw;
-    border-bottom: solid 1px #aaa;
+    grid-template-columns: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw;
+    grid-template-rows: 5vw 5vw 5vw 5vw 5vw 5vw;
 }
 
 .chairgrid div:hover {
@@ -461,7 +456,10 @@ a {
     align-items: center;
 }
 
-.seats::after {
+.seats::before {
+    content: '\00B7 '
+}
+.seats:first-child::before{
     content: ' '
 }
 
@@ -521,27 +519,12 @@ a {
     color: #ddd;
 }
 
-.counting {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.counting{
+    text-align: center;
 }
 
-.left {
-    text-align: right;
-    width: 25vw;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 1vw;
-}
-
-.right {
-    text-align: left;
-    width: 25vw;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: .75vw;
-    top: 0
+.counting h4{
+    padding: 10px;
 }
 
 @media screen and (min-width: 0px) and (max-width: 575px) {}
