@@ -487,13 +487,14 @@ a {
     text-align: center;
     color: #DDD;
     font-size: 1.8em;
-    margin: 5%;
+    margin: 20px 20px 30px 20px;
+    
 }
 
 #personal-info-box h3 {
     text-align: center;
     color: #960018;
-    margin: 2% 5% 5% 5%;
+    margin: 10px 20px 20px 20px;
 }
 
 #personal-info{
@@ -511,16 +512,16 @@ a {
 }
 
 #personal-info>div>*{
-    flex: 1;
+    
     margin: 0 10px;
 }
 
 #personal-info>div>label{
+    flex: 1;
     margin: 5px;
     font-size: 1.2em;
     text-align: right;
-    width: 180px;
-    min-width: 100px;
+    width: 140px;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 375px){
@@ -531,9 +532,11 @@ a {
 }
 
 #personal-info>div>input{
+    flex: 2;
     background-color: #222;
     border: 2px solid #222;
     height: 25px;
+    max-width: 250px;
     padding: 3px 8px;
     font-size: 1em;
     color: #888;

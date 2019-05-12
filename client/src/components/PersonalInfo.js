@@ -20,7 +20,7 @@ class PersonalInfo extends React.Component {
                         <input type="email" id="email" />
                     </div>
                     <div>
-                        <label for="telephone">Telephone Number</label>
+                        <label for="telephone">Tel. Number</label>
                         <input type="tel" id="telephone" />
                     </div>
                 </form>
