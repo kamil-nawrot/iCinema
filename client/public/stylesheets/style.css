@@ -371,7 +371,7 @@ a {
     font-size: 1.8em;
     text-align: center;
     box-sizing: border-box;
-    padding-top:20px;
+    padding-top: 20px;
 }
 
 .container1 {
@@ -387,7 +387,7 @@ a {
     scrollbar-color: #960018 #222;
     background-color: rgba(34, 34, 34, 0.3);
     overflow: auto;
-    position:relative;
+    position: relative;
 }
 
 .container1::-webkit-scrollbar {
@@ -412,14 +412,16 @@ a {
     justify-content: center;
     align-items: center;
 }
-.screen{
-    padding:5px;
+
+.screen {
+    padding: 5px;
     width: 50vw;
     margin-bottom: 20px;
     background-color: rgba(180, 180, 180, 0.3);
     box-sizing: border-box;
     text-align: center;
 }
+
 .chairgrid {
     display: grid;
     width: 100%;
@@ -446,7 +448,7 @@ a {
     content: ' '
 }
 
-.seats{
+.seats {
     display: inline
 }
 
@@ -473,6 +475,67 @@ a {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.legend {
+    display: grid;
+    width: 50vw;
+    grid-template-columns: 10vw 10vw 10vw 10vw 10vw;
+    grid-template-rows: 10vw;
+}
+
+.legend span {
+    width: 6vw;
+    height: 6vw;
+    margin: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.legend span:hover {
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
+}
+
+.boldtext {
+    font-weight: 700;
+    color: #ddd;
+}
+
+.counting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    text-align: right;
+    width: 25vw;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 2vw;
+}
+
+.right {
+    text-align: left;
+    width: 25vw;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 2vw;
+    top: 0
+}
+
+@media screen and (min-width: 0px) and (max-width: 575px) {}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media screen and (min-width: 1200px) {}
 
 /* Personal info styling */
 
