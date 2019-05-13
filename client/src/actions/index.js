@@ -53,3 +53,23 @@ export const selectShowing = (showing) => {
         payload: showing
     }
 }
+
+export const confirmBooking = (booking) => async dispatch => {
+    await LocalServer.post('/bookings', {
+            movie: {
+                title: booking.selectedMovie.title,
+                id: booking.selectedMovie.id,
+                poster: booking.selectedMovie.poster_path,
+                genres: booking.selectedMovie.genre_ids,
+                release_date: booking.selectedMovie.release_date,
+                average_score: booking.selectedMovie.vote_average,
+                overview: booking.selectedMovie.overview
+            },
+            region: {
+                region: booking.region.region,
+                lang: booking.region.lang
+            },
+            showing: booking.selectedShowing
+        });
+    dispatch({ type: 'BOOKING_CONFIRMED', payload: booking });
+}

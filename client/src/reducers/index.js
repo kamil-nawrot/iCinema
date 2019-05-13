@@ -49,6 +49,13 @@ const selectedShowingReducer = (selectedShowing = '', action) => {
     }
 }
 
+const bookingReducer = (booking = {}, action) => {
+    switch (action.type) {
+        case 'BOOKING_CONFIRMED': return action.payload;
+        default: return booking;
+    }
+}
+
 export default combineReducers({
     region: regionReducer,
     movies: movieReducer,
@@ -56,5 +63,6 @@ export default combineReducers({
     externalId: externalIdReducer,
     selectedMovie: selectedMovieReducer,
     schedule: scheduleReducer,
-    selectedShowing: selectedShowingReducer
+    selectedShowing: selectedShowingReducer,
+    booking: bookingReducer
 });

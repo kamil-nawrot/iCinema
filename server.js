@@ -23,17 +23,15 @@ app.get('/api/schedule/:movie_id', (req, res) => {
         date.setMilliseconds(0);
         date.setMinutes(faker.random.number({min: 1, max: 4})*15);
         date.setHours(faker.random.number({min: 9, max: 20}));
+        schedule.push(date);
+        schedule = schedule.sort((a, b) => a.valueOf() - b.valueOf());
         if (i > 0) {
-            if (date.getDate() === schedule[i-1].getDate()) {
+            if (date.getDay() === schedule[i-1].getDay()) {
                 if (date.getHours() - schedule[i-1].getHours() < 2) {
-                    if (schedule[i-1].getHours() < 19) {
-                        date.setHours(schedule[i-1].getHours() + 2);
-                    }
-                    else date.setDate(schedule[i-1].getDate() + 1);
+                    date.setHours(schedule[i-1].getHours() + 2);
                 }
             }
         }
-        schedule.push(date);
     }
     schedule = schedule.sort((a, b) => a.valueOf() - b.valueOf());
     res.send(schedule);

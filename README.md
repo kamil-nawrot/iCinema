@@ -2,7 +2,7 @@
 Find an alluring movie which is currently displayed on theatres, specify showtime, type and quantity of tickets, choose best seats, provide a few information about yourself - that's all you have to do to make a booking in **iCinema**. It provides both UI and server with MongoDB connected. Main goal was to simulate real-world booking proccess, taking care of every aspect of this operation.
 
 # Features
-## Movie Selection
+## Movie selection
 To find all movies now being played in theatres, app make request to [The Movie Db API](https://www.themoviedb.org/documentation/api), to its `/now-playing` endpoint. Response includes all information needed and it's also used to generate view with movie details.
 
 ## Schedule

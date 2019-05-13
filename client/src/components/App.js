@@ -7,6 +7,7 @@ import ScheduleSelection from './ScheduleSelection';
 import PlaceSelection from './PlaceSelection';
 import PersonalInfo from './PersonalInfo';
 import Navigation from './Navigation';
+import Confirmation from './Confirmation';
 
 class App extends React.Component
 {
@@ -18,7 +19,8 @@ class App extends React.Component
                   <Route path="/movies" exact component={MovieSelection} />
                   <Route path="/schedule" exact component={ScheduleSelection} />  
                   <Route path="/seats" exact component={PlaceSelection} />
-                  <Route path="/personal-details" exact component={PersonalInfo} />                  
+                  <Route path="/personal-details" exact component={PersonalInfo} />  
+                  <Route path="/confirmation" exact component={Confirmation} />                
                 </Switch>
                 <Navigation />
             </div>

@@ -8,21 +8,11 @@ mongoose.connect(dbUri, { useNewUrlParser: true })
 
 async function getBookings(req, res) {
     const bookings = await Booking.find();
-    res.send(results);
+    res.send(bookings);
 }
 
 async function addBooking(req, res) {
-    const newBooking = new Booking({
-        movie: {
-            title: req.body.movie.title,
-            id: req.body.movie.id
-        },
-        region: {
-            region: req.body.region.region,
-            lang: req.body.region.lang
-        },
-        showing: req.body.showing
-    });
+    const newBooking = new Booking(req.body);
     const result = await newBooking.save();
     res.send(result);
 }
