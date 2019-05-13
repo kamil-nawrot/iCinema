@@ -706,6 +706,7 @@ a {
     align-items: center;
     justify-content: center;
     padding: 10px;
+    box-sizing: border-box;
 }
 
 #personal-info-box h1{
