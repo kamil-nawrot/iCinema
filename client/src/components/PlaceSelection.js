@@ -58,6 +58,7 @@ class PlaceSelection extends React.Component
     render() {
         return (
             <div className = "container1">
+            <a className = "arrowleft" href="#"><i className = "fas fa-angle-double-left"></i></a>
                 <div className = "list1"> 
                     <h2 className = "selectplace"> Select your place! </h2>
                     <Legend /> 
@@ -68,6 +69,7 @@ class PlaceSelection extends React.Component
                           reserved={this.state.placeReserved}
                           checked={this.state.placeChecked}
                           onClickChoice={this.onClickChoice.bind(this)}/> 
+            <a className = "arrowright" href = "#"><i class = "fas fa-angle-double-right"> </i></a>
             </div>
         )
     }
