@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { selectSeats, findBookings } from '../actions';
+
 class PlaceSelection extends React.Component 
 {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.props.findBookings(this.props.selectedMovie.id, this.props.selectedShowing);
         this.state = {
             place: [
                 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10',
@@ -20,10 +23,19 @@ class PlaceSelection extends React.Component
                 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10',
                 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10',
                 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8', 'E9', 'E10',
-                'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8'
+                'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10'
             ],
-            placeChecked: [],
-            placeReserved: ['F9', 'F10']
+            placeChecked: this.props.selectedSeats,
+            placeReserved: []
+        };
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props !== prevProps) {
+            let reservedSeats = this.props.foundBookings.map(booking => {
+                return booking.seats;
+            }).flat();
+            this.setState({placeReserved: reservedSeats});
         }
     }
 
@@ -53,9 +65,21 @@ class PlaceSelection extends React.Component
                 })
             }
         }
+        this.props.selectSeats([...this.state.placeChecked, place]);
     }
 
     render() {
+        if (!this.props.selectedMovie || !this.props.selectedShowing) {  
+            return (
+                <div className="container" style={{ backgroundColor: "rgba(34, 34, 34, 0.3)" }}> 
+                    <div className="option">
+                        <div className="empty" style={{ backgroundColor: "rgba(0,0,0,0)" }}>
+                            You have to choose movie and showing time first
+                        </div>
+                    </div>
+                </div>
+            );
+        }
         return (
             <div className = "container1">
             <a className = "arrowleft" path = "/tickets" href="tickets"> <i className = "fas fa-angle-double-left"> </i></a>
@@ -76,7 +100,7 @@ class PlaceSelection extends React.Component
 }
     
 class ChairGrid extends React.Component
-{
+{   
     render() {
         return (
             <div className = "cinema">
@@ -85,7 +109,7 @@ class ChairGrid extends React.Component
                 <div className = "chairgrid">
                             {this.props.place.map(place => 
                                 <div className={this.props.checked.indexOf(place) > -1 ?'chairchecked' :
-                                               this.props.available.indexOf(place) > -1 ?'chairavailable' :'chairreserved'}
+                                               this.props.reserved.indexOf(place) > -1 ?'chairreserved' :'chairavailable'}
                                     key={place}
                                     onClick={ e => this.onClickPlace(place)}>
                                     <span> {place} </span>
@@ -130,5 +154,14 @@ class Legend extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        selectedSeats: state.selectedSeats,
+        selectedMovie: state.selectedMovie,
+        selectedShowing: state.selectedShowing,
+        foundBookings: state.foundBookings
+    };
+}
                             
-export default connect(null)(PlaceSelection);
+export default connect(mapStateToProps, { selectSeats, findBookings })(PlaceSelection);

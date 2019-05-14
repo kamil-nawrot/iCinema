@@ -23,6 +23,11 @@ class PersonalInfo extends React.Component {
                         <label htmlFor="telephone">Phone Number</label>
                         <input type="tel" id="telephone" />
                     </div>
+                    <button className="nav-button" style={{width: "100%"}} onClick={() => {
+                        
+                    }}>
+                        CONFIRM
+                    </button>
                 </form>
                 <h3>Warning! Entering false data could cause you refusal of lounching the ticket.</h3>
             </div>

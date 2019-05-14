@@ -49,10 +49,31 @@ const selectedShowingReducer = (selectedShowing = '', action) => {
     }
 }
 
+const selectedSeatsReducer = (selectedSeats = [], action) => {
+    switch (action.type) {
+        case 'SEATS_SELECTED': return action.payload;
+        default: return selectedSeats;
+    }
+}
+
 const bookingReducer = (booking = {}, action) => {
     switch (action.type) {
         case 'BOOKING_CONFIRMED': return action.payload;
         default: return booking;
+    }
+}
+
+const findBookingsReducer = (bookings = [], action) => {
+    switch (action.type) {
+        case 'BOOKINGS_FOUND': return action.payload;
+        default: return bookings;
+    }
+}
+
+const personReducer = (person = {}, action) => {
+    switch (action.type) {
+        case 'PERSON_ADDED': return action.payload;
+        default: return person;
     }
 }
 
@@ -64,5 +85,8 @@ export default combineReducers({
     selectedMovie: selectedMovieReducer,
     schedule: scheduleReducer,
     selectedShowing: selectedShowingReducer,
-    booking: bookingReducer
+    selectedSeats: selectedSeatsReducer,
+    booking: bookingReducer,
+    foundBookings: findBookingsReducer,
+    person: personReducer
 });

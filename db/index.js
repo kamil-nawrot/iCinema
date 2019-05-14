@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Booking = require('./models/Booking');
+mongoose.Promise = global.Promise;
 
 const dbUri = 'mongodb+srv://admin:admin@icinemadb-ohy6u.mongodb.net/Bookings';
 mongoose.connect(dbUri, { useNewUrlParser: true })
@@ -7,8 +8,8 @@ mongoose.connect(dbUri, { useNewUrlParser: true })
     .catch(err => console.error('Cannot connect to database', err));
 
 async function getBookings(req, res) {
-    const bookings = await Booking.find();
-    res.send(bookings);
+    const bookings = await Booking.find({showing: req.query.showing, "movie.id": req.query.id }).select('seats');
+    res.json(bookings);
 }
 
 async function addBooking(req, res) {

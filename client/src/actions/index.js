@@ -54,6 +54,13 @@ export const selectShowing = (showing) => {
     }
 }
 
+export const selectSeats = (seats) => {
+    return {
+        type: 'SEATS_SELECTED',
+        payload: seats
+    }
+}
+
 export const confirmBooking = (booking) => async dispatch => {
     await LocalServer.post('/bookings', {
             movie: {
@@ -69,7 +76,31 @@ export const confirmBooking = (booking) => async dispatch => {
                 region: booking.region.region,
                 lang: booking.region.lang
             },
-            showing: booking.selectedShowing
+            showing: booking.selectedShowing,
+            seats: booking.selectedSeats,
+            person: {
+                first_name: booking.person.first_name,
+                last_name: booking.person.last_name,
+                email: booking.person.email,
+                phone_number: booking.person.phone_number
+            }
         });
     dispatch({ type: 'BOOKING_CONFIRMED', payload: booking });
+}
+
+export const findBookings = (movieId, showing) => async dispatch => {
+    const response = await LocalServer.get('/bookings', {
+        params: {
+            id: movieId,
+            showing: showing
+        }
+    });
+    dispatch({ type: 'BOOKINGS_FOUND', payload: response.data });
+}
+
+export const addPersonalInfo = (person) => {
+    return {
+        type: 'PERSON_ADDED',
+        payload: person
+    }
 }
