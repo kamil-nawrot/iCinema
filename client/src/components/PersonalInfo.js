@@ -38,7 +38,7 @@ class PersonalInfo extends React.Component {
     render(){
         return (
             <div className="container" id="personal-info-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
-            <NavLink className = "arrowleft" to = "/tickets"> <i className = "fas fa-angle-double-left"> </i></NavLink>
+            <NavLink className = "arrowleft" to = "/seats"> <i className = "fas fa-angle-double-left"> </i></NavLink>
                 <h1>Enter your personal data</h1>
                 <form id="personal-info" onSubmit={this.props.handleSubmit(this.onSubmit)} >
                     <Field name="firstName" component={this.renderInput} label="First Name" inputType="text" />
@@ -48,6 +48,7 @@ class PersonalInfo extends React.Component {
                     <h3>Warning! Entering false data could cause you refusal of lounching the ticket.</h3>
                     <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>CONFIRM</button>
                 </form>
+                <NavLink className = "arrowright" to = "/confirmation" > <i className = "fas fa-angle-double-right"> </i></NavLink>
             </div>
         );
     }
