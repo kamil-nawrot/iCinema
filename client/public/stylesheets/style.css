@@ -362,6 +362,7 @@ a {
     color: #CCC;
     cursor: pointer;
     transition: all 1s;
+    box-sizing: border-box;
 }
 
 .option-button:hover {
@@ -485,7 +486,6 @@ a {
         grid-template-columns: 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw;
         grid-template-rows: 8vw 8vw 8vw 8vw 8vw 8vw;
         padding-bottom: .5vw;
-        border-bottom: solid 1px #aaa;
     }
 
     .chairgrid div:hover {
@@ -567,11 +567,12 @@ a {
         justify-content: center;
         align-items: center;
         text-align: center;
+        padding: 10px;
     }
    
     .counting h4 {
-        padding: 10px;
-        line-height: 1.5em;
+        padding: 5px;
+        line-height: 1.2em;
     }
 }
 
@@ -740,10 +741,6 @@ a {
     }
 
 }
-
-/*@media screen and (min-width: 992px) and (max-width: 1199px) {}
-
-@media screen and (min-width: 1200px) {}*/
 
 /* Personal info styling */
 
