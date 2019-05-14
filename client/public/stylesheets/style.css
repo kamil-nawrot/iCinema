@@ -342,20 +342,6 @@ a {
     color: #888;
 }
 
-@media screen and (min-width: 0px) and (max-width: 767px) {
-.option {
-    flex-wrap: nowrap;
-}
-}
-
-@media screen and (min-width: 767px) {
-    .option {
-        flex-wrap: wrap;
-    }
-}
-
-
-
 .option h2 {
     font-size: 2em;
 }
@@ -381,6 +367,7 @@ a {
 .option-button:hover {
     background-color: #630010;
     color: #DDD;
+    cursor: pointer;
 }
 
 .option-wrapper {
@@ -388,6 +375,28 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+    .option {
+        flex-wrap: nowrap;
+    }
+    .option-button:hover {
+        background-color: #630010;
+        color: #DDD;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .option {
+        flex-wrap: wrap;
+    }
+    .option-button:hover {
+        background-color: #630010;
+        color: #DDD;
+        cursor: pointer;
+    }
 }
 
 .active {
