@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {NavLink} from 'react-router-dom';
 import moment from 'moment';
 
 import { fetchSchedule, selectShowing, selectSeats } from '../actions';
@@ -37,9 +38,11 @@ class ScheduleSelection extends React.Component
     render() {
         return (
             <div className="container" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
+            <NavLink className = "arrowleft" to="/movies"> <i className = "fas fa-angle-double-left"> </i></NavLink>
                 <div className="option">
                     {this.renderSchedule()}
                 </div>
+                <NavLink className="arrowright" to="/tickets"> <i className="fas fa-angle-double-right"> </i></NavLink>
             </div>
         );
     }
