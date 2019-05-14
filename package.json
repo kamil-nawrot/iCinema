@@ -23,7 +23,8 @@
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "mongoose": "^5.5.6",
-    "react-redux-form": "^1.16.13"
+    "react-redux-form": "^1.16.13",
+    "redux-form": "^8.1.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
