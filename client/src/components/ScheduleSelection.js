@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import moment from 'moment';
 
-import { fetchSchedule, selectShowing } from '../actions';
+import { fetchSchedule, selectShowing, selectSeats } from '../actions';
 
 class ScheduleSelection extends React.Component
 {  
-    componentDidMount() {
-        if (this.props.selectedMovie) this.props.fetchSchedule(this.props.selectedMovie.id);
+    constructor(props) {
+        super(props);
+        this.props.fetchSchedule(this.props.selectedMovie.id);
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.selectedMovie !== this.props.selectedMovie)   fetchSchedule(this.props.selectedMovie.id);
+        if (this.props.selectedShowing !== prevProps.selectedShowing)
+            this.props.selectSeats([]);
     }
 
     renderSchedule() {
@@ -53,4 +55,4 @@ const mapStateToProps = state => {
         schedule: state.schedule };
 }
 
-export default connect(mapStateToProps, { fetchSchedule, selectShowing })(ScheduleSelection);
+export default connect(mapStateToProps, { fetchSchedule, selectShowing, selectSeats })(ScheduleSelection);

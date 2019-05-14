@@ -27,16 +27,14 @@ class PlaceSelection extends React.Component
                 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10'
             ],
             placeChecked: this.props.selectedSeats,
-            placeReserved: []
+            placeReserved: this.props.foundBookings
         };
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props !== prevProps) {
-            let reservedSeats = this.props.foundBookings.map(booking => {
-                return booking.seats;
-            }).flat();
-            this.setState({placeReserved: reservedSeats});
+        if(this.props.selectedSeats !== prevProps.selectedSeats) {
+            console.log(this.props.selectedSeats);
+            this.setState({placeChecked: this.props.selectedSeats});
         }
     }
 
