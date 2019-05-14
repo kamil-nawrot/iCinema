@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 
 class PersonalInfo extends React.Component {
     render(){
         return (
             <div className="container" id="personal-info-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
+            <NavLink className = "arrowleft" to = "/tickets"> <i className = "fas fa-angle-double-left"> </i></NavLink>
                 <h1>Enter your personal data</h1>
                 <form id="personal-info">
                     <div>
@@ -30,6 +32,7 @@ class PersonalInfo extends React.Component {
                     </button>
                 </form>
                 <h3>Warning! Entering false data could cause you refusal of lounching the ticket.</h3>
+                <NavLink className = "arrowright" to = "/confirmation"> <i className="fas fa-angle-double-right"> </i></NavLink>
             </div>
         );
     }

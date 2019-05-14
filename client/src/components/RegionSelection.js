@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {NavLink} from 'react-router-dom';
 
 import { selectRegion } from '../actions';
 
@@ -31,6 +32,7 @@ class RegionSelection extends React.Component
                         {this.renderOptions()}
                     </div>
                 </div>
+                <NavLink className="arrowright" to="/movies"> <i className = "fas fa-angle-double-right"> </i></NavLink>
             </div>
         );
     }
