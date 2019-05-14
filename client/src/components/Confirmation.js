@@ -9,7 +9,7 @@ class Confirmation extends React.Component
     render() {
         return (
             <div className="container">
-            <NavLink className = "arrowleft" to = "/persolan-details"> <i className = "fas fa-angle-double-left"> </i></NavLink>
+            <NavLink className = "arrowleft" to = "/personal-details"> <i className = "fas fa-angle-double-left"> </i></NavLink>
                 <button className="option-button" onClick={() => {
                     this.props.confirmBooking(this.props);
                 }}> Confirm changes </button>

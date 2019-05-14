@@ -6,7 +6,7 @@ class PersonalInfo extends React.Component {
     render(){
         return (
             <div className="container" id="personal-info-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
-            <NavLink className = "arrowleft" to = "/tickets"> <i className = "fas fa-angle-double-left"> </i></NavLink>
+            <NavLink className = "arrowleft" to = "/seats"> <i className = "fas fa-angle-double-left"> </i></NavLink>
                 <h1>Enter your personal data</h1>
                 <form id="personal-info">
                     <div>
