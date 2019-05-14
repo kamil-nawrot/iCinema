@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {NavLink} from 'react-router-dom';
 
 import { selectSeats, findBookings } from '../actions';
 
@@ -82,7 +83,7 @@ class PlaceSelection extends React.Component
         }
         return (
             <div className = "container1">
-            <a className = "arrowleft" path = "/tickets" href="tickets"> <i className = "fas fa-angle-double-left"> </i></a>
+            <NavLink className = "arrowleft" to="/tickets"> <i className = "fas fa-angle-double-left"> </i></NavLink>
                 <div className = "list1"> 
                     <h2 className = "selectplace"> Select your place! </h2>
                     <Legend /> 
@@ -93,7 +94,7 @@ class PlaceSelection extends React.Component
                           reserved={this.state.placeReserved}
                           checked={this.state.placeChecked}
                           onClickChoice={this.onClickChoice.bind(this)}/> 
-            <a className = "arrowright" to="/personal-details" href="personal-details"><i className = "fas fa-angle-double-right"> </i></a>
+            <NavLink className = "arrowright" to="/personal-details"><i className = "fas fa-angle-double-right"> </i></NavLink>
             </div>
         )
     }
