@@ -730,6 +730,7 @@ a {
 }
 
 #personal-info>div{
+    position: relative;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -749,7 +750,48 @@ a {
     min-width: 130px;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 409px){
+#personal-info>div>input{
+    flex: 2;
+    background-color: #222;
+    border: 2px solid #222;
+    height: 25px;
+    max-width: 290px;
+    padding: 3px 8px;
+    font-size: 1em;
+    color: #888;
+    transition: all 0.2s ease-out;
+}
+
+#personal-info>div>input.error-input{
+    background-color: #63001040;
+    border-color: #630010;
+}
+
+#personal-info>div>input:hover{
+    border: 2px solid #960018;
+}
+
+#personal-info>div>input:focus{
+    border: 2px solid #960018;
+    background-color: #222;
+}
+
+#confirm-btn{
+   transition: all 1s;
+}
+
+#confirm-btn:hover {
+    background-color: #630010;
+}
+
+.error-message {
+    position: absolute;
+    right: 5%;
+    color: #960018;
+    font-size: 0.8em;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 431px){
     #personal-info>div>label {
         text-align: center;
         margin: 10px;
@@ -762,26 +804,14 @@ a {
     #personal-info>div {
         justify-content: center;
     }
-}
 
-#personal-info>div>input{
-    flex: 2;
-    background-color: #222;
-    border: 2px solid #222;
-    height: 25px;
-    max-width: 250px;
-    padding: 3px 8px;
-    font-size: 1em;
-    color: #888;
-    transition: all 0.2s ease-out;
-}
-
-#personal-info>div>input:hover{
-    border: 2px solid #960018;
-}
-
-#personal-info>div>input:focus{
-    border: 2px solid #960018;
+    .error-message {
+        position: absolute;
+        right: 5%;
+        top: 50px;
+        color: #960018;
+        font-size: 0.8em;
+    }
 }
 
 /* Arrow */

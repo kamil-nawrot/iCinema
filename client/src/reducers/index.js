@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer} from 'redux-form';
 
 const regionReducer = (region = {}, action) => {
     switch(action.type) {
@@ -88,5 +89,6 @@ export default combineReducers({
     selectedSeats: selectedSeatsReducer,
     booking: bookingReducer,
     foundBookings: findBookingsReducer,
+    form: formReducer,
     person: personReducer
 });
