@@ -33,7 +33,7 @@ class PlaceSelection extends React.Component
 
     componentDidUpdate(prevProps) {
         if(this.props.selectedSeats !== prevProps.selectedSeats) {
-            console.log(this.props.selectedSeats);
+            //console.log(this.props.selectedSeats);
             this.setState({placeChecked: this.props.selectedSeats});
         }
     }
@@ -50,7 +50,7 @@ class PlaceSelection extends React.Component
                         .state
                         .placeChecked
                         .filter(res => res !== place)
-                })
+                });
             } else {
                 this.setState({
                     placeChecked: this
@@ -62,9 +62,10 @@ class PlaceSelection extends React.Component
                         .placeAvailable
                         .filter(res => res !== place)
                 })
+                this.props.selectSeats([...this.state.placeChecked, place]);
             }
         }
-        this.props.selectSeats([...this.state.placeChecked, place]);
+        
     }
 
     render() {
