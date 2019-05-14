@@ -32,7 +32,7 @@ class PersonalInfo extends React.Component {
                         CONFIRM
                     </button>
                 </form>
-                <NavLink className = "arrowright" to = "/conformation"> <i className = "fas fa-angle-double-right" > </i></NavLink>
+                <NavLink className = "arrowright" to = "/confirmation" > <i className = "fas fa-angle-double-right"> </i></NavLink>
             </div>
         );
     }
