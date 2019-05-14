@@ -853,6 +853,7 @@ a {
 }
 
 /* Arrow */
+@media screen and (min-width: 768px) {
 .arrowleft {
     background-size: contain;
     background-repeat: no-repeat;
@@ -994,5 +995,151 @@ a {
     100% {
         transform: translate(20px, 0);
         opacity: 0;
+    }
+}}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+    .arrowleft {
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        display: inline-block;
+        height: 30px;
+        width: 40px;
+        margin: 0px 20px;
+        line-height: 30px;
+        position: fixed;
+        left: 0;
+        bottom: 50%;
+        color: #FFF;
+        text-align: center;
+        font-size: 35px;
+        z-index: 100;
+        text-decoration: none;
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+
+        -webkit-animation: animateLeft 2s ease-in-out infinite;
+        -moz-animation: animateLeft 2s ease-in-out infinite;
+        animation: animateLeft 2s ease-in-out infinite;
+    }
+
+    @-webkit-keyframes animateLeft {
+        0% {
+            -webkit-transform: translate(10px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            -webkit-transform: translate(-10px, 0);
+            opacity: 0;
+        }
+    }
+
+    @-moz-keyframes animateLeft {
+        0% {
+            -moz-transform: translate(10px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            -moz-transform: translate(-10px, 0);
+            opacity: 0;
+        }
+    }
+
+    @keyframes animateLeft {
+        0% {
+            transform: translate(10px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(-10px, 0);
+            opacity: 0;
+        }
+    }
+
+    .arrowright {
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        display: inline-block;
+        height: 30px;
+        width: 40px;
+        margin: 0px 20px;
+        line-height: 30px;
+        position: fixed;
+        right: 0;
+        bottom: 50%;
+        color: #FFF;
+        text-align: center;
+        font-size: 35px;
+        z-index: 100;
+        text-decoration: none;
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+
+        -webkit-animation: animateRight 2s ease-in-out infinite;
+        -moz-animation: animateRight 2s ease-in-out infinite;
+        animation: animateRight 2s ease-in-out infinite;
+    }
+
+    @-webkit-keyframes animateRight {
+        0% {
+            -webkit-transform: translate(-10px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            -webkit-transform: translate(10px, 0);
+            opacity: 0;
+        }
+    }
+
+    @-moz-keyframes animateRight {
+        0% {
+            -moz-transform: translate(-10px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            -moz-transform: translate(10px, 0);
+            opacity: 0;
+        }
+    }
+
+    @keyframes animateRight {
+        0% {
+            transform: translate(-10px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(10px, 0);
+            opacity: 0;
+        }
     }
 }
