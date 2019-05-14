@@ -71,11 +71,13 @@ class PlaceSelection extends React.Component
         if (!this.props.selectedMovie || !this.props.selectedShowing) {  
             return (
                 <div className="container" style={{ backgroundColor: "rgba(34, 34, 34, 0.3)" }}> 
+                <NavLink className = "arrowleft" to = "/tickets" > <i className = "fas fa-angle-double-left"> </i></NavLink>
                     <div className="option">
                         <div className="empty" style={{ backgroundColor: "rgba(0,0,0,0)" }}>
                             You have to choose movie and showing time first
                         </div>
                     </div>
+                    <NavLink className = "arrowright" to = "/personal-details"> <i className = "fas fa-angle-double-right"> </i></NavLink>
                 </div>
             );
         }
