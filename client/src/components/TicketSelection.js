@@ -7,10 +7,7 @@ import {NavLink} from 'react-router-dom';
 import { selectRegion, selectMovie, selectShowing } from '../actions';
 
 class TicketSelection extends React.Component {
-
-
-    
-      state = {
+    state = {
             juniorNumber: 0,
             studentNumber: 0,
             normalNumber: 0,
@@ -23,21 +20,14 @@ class TicketSelection extends React.Component {
 
 
     renderTickets(){
-    
-        //if (!this.props.selectedMovie)  
-          //  console.log(this.props.selectedMovie);
-            //return (
-              //  <div className="empty" style={{ backgroundColor: "rgba(0,0,0,0)" }}> 
-                //    You have to choose movie first
-               // </div>
-            //);
+
         return(
             <div className="container" id="tickets-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
                 <h1>Choose your tickets here.</h1>
                 <form id="tickets-info" onSubmit={() => this.onFormSubmit()} >
                     <div className="ticket-field">
                         <label>Junior Tickets Number</label>
-                        <NumericInput 
+                        <NumericInput id="numeric-input"
                             min={0} 
                             max={20} 
                             value={this.state.juniorNumber}
@@ -45,7 +35,7 @@ class TicketSelection extends React.Component {
                     </div>
                     <div className="ticket-field">
                         <label>Student Tickets Number</label>
-                        <NumericInput 
+                        <NumericInput id="numeric-input"
                             min={0} 
                             max={20} 
                             value={this.state.studentNumber}
@@ -53,7 +43,7 @@ class TicketSelection extends React.Component {
                     </div>
                     <div className="ticket-field">
                         <label>Normal Tickets Number</label>
-                        <NumericInput 
+                        <NumericInput id="numeric-input" 
                             min={0} 
                             max={20} 
                             value={this.state.normalNumber}
@@ -61,7 +51,7 @@ class TicketSelection extends React.Component {
                     </div>
                     <div className="ticket-field">
                         <label>Senior Tickets Number</label>
-                        <NumericInput 
+                        <NumericInput id="numeric-input"
                             min={0} 
                             max={20} 
                             value={this.state.juniorNumber}
