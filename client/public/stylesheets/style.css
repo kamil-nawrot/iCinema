@@ -513,7 +513,6 @@ a {
         scrollbar-width: thin;
         scrollbar-color: #960018 #222;
         background-color: rgba(34, 34, 34, 0.3);
-        /*overflow: auto;*/
         position: relative;
     }
 
@@ -870,7 +869,23 @@ a {
     width: 210px;
     min-width: 130px;
 }
-
+@media screen and (min-width: 0px) and (max-width: 767px) {
+    #tickets-box {
+        scrollbar-width: thin;
+        scrollbar-color: #960018 #222;
+        background-color: rgba(34, 34, 34, 0.3);
+        box-sizing: border-box;
+        margin: 0;
+        width: 100%;
+        position: relative;
+        display: inline;
+    }
+    .sum-field{
+margin: 0;
+margin-top: 10px;
+margin-bottom: 20px;    
+}
+}
 
 
 

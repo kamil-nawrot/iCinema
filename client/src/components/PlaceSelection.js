@@ -9,7 +9,7 @@ class PlaceSelection extends React.Component
     constructor(props) {
         super(props);
         this.props.findBookings(this.props.selectedMovie.id, this.props.selectedShowing);
-        console.log(this.props.tickets);
+        //console.log(this.props.foundBookings);
         this.state = {
             place: [
                 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10',
@@ -61,8 +61,6 @@ class PlaceSelection extends React.Component
                         .filter(res => res !== place)
                 });
             } else if (this.state.placeChecked.length < this.state.maxChecked) {
-                console.log(this.state.placeChecked.length);
-                console.log(this.state.maxChecked);
                 this.setState({
                     placeChecked: this
                         .state
