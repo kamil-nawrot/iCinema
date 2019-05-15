@@ -61,8 +61,6 @@ class PlaceSelection extends React.Component
                         .filter(res => res !== place)
                 });
             } else if (this.state.placeChecked.length < this.state.maxChecked) {
-                console.log(this.state.placeChecked.length);
-                console.log(this.state.maxChecked);
                 this.setState({
                     placeChecked: this
                         .state
