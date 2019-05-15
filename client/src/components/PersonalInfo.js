@@ -1,8 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { NavLink } from 'react-router-dom';
 
-class PersonalInfo extends React.Component {
+import { addPersonalInfo } from '../actions';
+
+class PersonalInfo extends React.Component 
+{
     renderError({ error, touched, focused }){
         if (touched && error) {
             return(
@@ -24,31 +28,11 @@ class PersonalInfo extends React.Component {
         );
     }
 
-    onSubmit(formValues){
-        var firstNameVal = formValues.firstName;
-        var lastNameVal = formValues.lastName;
-        var emailVal = formValues.email;
-        var phoneVal = formValues.phone;
-        formValues.firstName = '';
-        formValues.lastName = '';
-        formValues.email = '';
-        formValues.phone = '';
+    onSubmit = formValues => {
+        this.props.addPersonalInfo(formValues);
     }
 
     render(){
-        if (!this.props.selectedMovie || !this.props.selectedShowing) {  
-            return (
-                <div className="container" style={{ backgroundColor: "rgba(34, 34, 34, 0.3)" }}> 
-                <NavLink className = "arrowleft" to = "/tickets" > <i className = "fas fa-angle-double-left"> </i></NavLink>
-                    <div className="option">
-                        <div className="empty" style={{ backgroundColor: "rgba(0,0,0,0)" }}>
-                            You have to choose movie and showing time first
-                        </div>
-                    </div>
-                    <NavLink className = "arrowright" to = "/personal-details"> <i className = "fas fa-angle-double-right"> </i></NavLink>
-                </div>
-            );
-        }
         return (
             <div className="container" id="personal-info-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
             <NavLink className = "arrowleft" to = "/seats"> <i className = "fas fa-angle-double-left"> </i></NavLink>
@@ -59,7 +43,7 @@ class PersonalInfo extends React.Component {
                     <Field name="email" component={this.renderInput} label="EMail" inputType="text" />
                     <Field name="phone" component={this.renderInput} label="Phone Number" inputType="tel" />
                     <h3>Warning! Entering false data could cause you refusal of lounching the ticket.</h3>
-                    <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>CONFIRM</button>
+                    <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>SAVE</button>
                 </form>
                 <NavLink className = "arrowright" to = "/confirmation" > <i className = "fas fa-angle-double-right"> </i></NavLink>
             </div>
@@ -91,7 +75,16 @@ const validate = formValues => {
     return errors;
 }
 
+const mapStateToProps = state => {
+    return {
+        person: state.person
+    };
+}
+
+PersonalInfo = connect(mapStateToProps, { addPersonalInfo })(PersonalInfo);
+
 export default reduxForm({
     form: 'personalInfo',
-    validate
+    validate,
+    destroyOnUnmount: false
 })(PersonalInfo)
