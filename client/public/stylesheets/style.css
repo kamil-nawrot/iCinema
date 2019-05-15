@@ -196,16 +196,6 @@ body {
     height: 100%;
 }
 
-.list-details .info {
-    width: 100%;
-    margin-left: 1em;
-    padding: 10px;
-    background-color: rgba(34, 34, 34, 0.3);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #960018 #222;
-}
-
 .list-details .info::-webkit-scrollbar {
     width: 5px;
 }
@@ -327,9 +317,14 @@ a {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .list-details .info {
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: #960018 #222;
+        margin-left: 0px;
+        box-sizing: border-box;
     }
 
     .list-details img {
@@ -354,8 +349,9 @@ a {
 
     .list {
         width: 100%;
-        height: 75%;
+        height: 50%;
         box-sizing: border-box;
+        margin: 0;
     }
 
     .list::-webkit-scrollbar {
@@ -385,6 +381,15 @@ a {
 
     .nav-button {
         padding: 10px 0px;
+    }
+    .list-details .info {
+        width: 100%;
+        margin-left: 1em;
+        padding: 10px;
+        background-color: rgba(34, 34, 34, 0.3);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #960018 #222;
     }
 }
 
@@ -437,6 +442,7 @@ a {
     .option {
         flex-wrap: nowrap;
     }
+
     .option-button:hover {
         background-color: #630010;
         color: #DDD;
@@ -448,6 +454,7 @@ a {
     .option {
         flex-wrap: wrap;
     }
+
     .option-button:hover {
         background-color: #630010;
         color: #DDD;
@@ -624,7 +631,7 @@ a {
         text-align: center;
         padding: 10px;
     }
-   
+
     .counting h4 {
         padding: 5px;
         line-height: 1.2em;
@@ -798,7 +805,7 @@ a {
 }
 
 /*Tickets panel styling */
-#tickets-box{
+#tickets-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -807,14 +814,14 @@ a {
     box-sizing: border-box;
 }
 
-#tickets-box h1{
+#tickets-box h1 {
     text-align: center;
     color: #DDD;
     font-size: 1.8em;
     margin: 10px 20px 30px 20px;
 }
 
-.ticket-field{
+.ticket-field {
     position: relative;
     margin: 10px;
     display: flex;
@@ -822,17 +829,17 @@ a {
     align-items: center;
 }
 
-.sum-field{
+.sum-field {
     display: inline-block;
     position: relative;
     margin: 10px;
     margin-bottom: 20px;
-    
+
 
 }
 
 
-#numeric-input{
+#numeric-input {
     flex: 2;
     background-color: #222;
     border: 2px solid #222;
@@ -846,7 +853,7 @@ a {
     text-align: right;
 }
 
-#tickets-info>div>label{
+#tickets-info>div>label {
     flex: 1;
     margin: 5px;
     font-size: 1.2em;
@@ -860,7 +867,7 @@ a {
 
 /* Personal info styling */
 
-#personal-info-box{
+#personal-info-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -869,7 +876,7 @@ a {
     box-sizing: border-box;
 }
 
-.personal-container{
+.personal-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -879,7 +886,7 @@ a {
     margin: 2em auto;
 }
 
-#personal-info-box h1{
+#personal-info-box h1 {
     text-align: center;
     color: #DDD;
     font-size: 1.8em;
@@ -892,14 +899,14 @@ a {
     margin: 20px 20px 10px 20px;
 }
 
-#personal-info{
+#personal-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#personal-info>div{
+#personal-info>div {
     position: relative;
     margin: 10px;
     display: flex;
@@ -907,11 +914,11 @@ a {
     align-items: center;
 }
 
-#personal-info>div>*{
+#personal-info>div>* {
     margin: 0 10px;
 }
 
-#personal-info>div>label{
+#personal-info>div>label {
     flex: 1;
     margin: 5px;
     font-size: 1.2em;
@@ -920,7 +927,7 @@ a {
     min-width: 130px;
 }
 
-#personal-info>div>input{
+#personal-info>div>input {
     flex: 2;
     background-color: #222;
     border: 2px solid #222;
@@ -932,22 +939,22 @@ a {
     transition: all 0.2s ease-out;
 }
 
-#personal-info>div>input.error-input{
+#personal-info>div>input.error-input {
     background-color: #63001040;
     border-color: #630010;
 }
 
-#personal-info>div>input:hover{
+#personal-info>div>input:hover {
     border: 2px solid #960018;
 }
 
-#personal-info>div>input:focus{
+#personal-info>div>input:focus {
     border: 2px solid #960018;
     background-color: #222;
 }
 
-#confirm-btn{
-   transition: all 1s;
+#confirm-btn {
+    transition: all 1s;
 }
 
 #confirm-btn:hover {
@@ -961,7 +968,7 @@ a {
     font-size: 0.8em;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 431px){
+@media only screen and (min-width: 0px) and (max-width: 431px) {
     #personal-info>div>label {
         text-align: center;
         margin: 10px;
@@ -986,149 +993,150 @@ a {
 
 /* Arrow */
 @media screen and (min-width: 768px) {
-.arrowleft {
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    display: inline-block;
-    height: 60px;
-    width: 80px;
-    margin: 0px 40px;
-    line-height: 60px;
-    position: fixed;
-    left: 0;
-    bottom: 50%;
-    color: #FFF;
-    text-align: center;
-    font-size: 70px;
-    z-index: 100;
-    text-decoration: none;
-    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+    .arrowleft {
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        display: inline-block;
+        height: 60px;
+        width: 80px;
+        margin: 0px 40px;
+        line-height: 60px;
+        position: fixed;
+        left: 0;
+        bottom: 50%;
+        color: #FFF;
+        text-align: center;
+        font-size: 70px;
+        z-index: 100;
+        text-decoration: none;
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
 
-    -webkit-animation: animateLeft 2s ease-in-out infinite;
-    -moz-animation: animateLeft 2s ease-in-out infinite;
-    animation: animateLeft 2s ease-in-out infinite;
+        -webkit-animation: animateLeft 2s ease-in-out infinite;
+        -moz-animation: animateLeft 2s ease-in-out infinite;
+        animation: animateLeft 2s ease-in-out infinite;
+    }
+
+    @-webkit-keyframes animateLeft {
+        0% {
+            -webkit-transform: translate(20px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            -webkit-transform: translate(-20px, 0);
+            opacity: 0;
+        }
+    }
+
+    @-moz-keyframes animateLeft {
+        0% {
+            -moz-transform: translate(20px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            -moz-transform: translate(-20px, 0);
+            opacity: 0;
+        }
+    }
+
+    @keyframes animateLeft {
+        0% {
+            transform: translate(20px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(-20px, 0);
+            opacity: 0;
+        }
+    }
+
+    .arrowright {
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        display: inline-block;
+        height: 60px;
+        width: 80px;
+        margin: 0px 40px;
+        line-height: 60px;
+        position: fixed;
+        right: 0;
+        bottom: 50%;
+        color: #FFF;
+        text-align: center;
+        font-size: 70px;
+        z-index: 100;
+        text-decoration: none;
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+
+        -webkit-animation: animateRight 2s ease-in-out infinite;
+        -moz-animation: animateRight 2s ease-in-out infinite;
+        animation: animateRight 2s ease-in-out infinite;
+    }
+
+    @-webkit-keyframes animateRight {
+        0% {
+            -webkit-transform: translate(-20px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            -webkit-transform: translate(20px, 0);
+            opacity: 0;
+        }
+    }
+
+    @-moz-keyframes animateRight {
+        0% {
+            -moz-transform: translate(-20px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            -moz-transform: translate(20px, 0);
+            opacity: 0;
+        }
+    }
+
+    @keyframes animateRight {
+        0% {
+            transform: translate(-20px, 0);
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(20px, 0);
+            opacity: 0;
+        }
+    }
 }
-
-@-webkit-keyframes animateLeft {
-    0% {
-        -webkit-transform: translate(20px, 0);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        -webkit-transform: translate(-20px, 0);
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes animateLeft {
-    0% {
-        -moz-transform: translate(20px, 0);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        -moz-transform: translate(-20px, 0);
-        opacity: 0;
-    }
-}
-
-@keyframes animateLeft {
-    0% {
-        transform: translate(20px, 0);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(-20px, 0);
-        opacity: 0;
-    }
-}
-
-.arrowright {
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    display: inline-block;
-    height: 60px;
-    width: 80px;
-    margin: 0px 40px;
-    line-height: 60px;
-    position: fixed;
-    right: 0;
-    bottom: 50%;
-    color: #FFF;
-    text-align: center;
-    font-size: 70px;
-    z-index: 100;
-    text-decoration: none;
-    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
-
-    -webkit-animation: animateRight 2s ease-in-out infinite;
-    -moz-animation: animateRight 2s ease-in-out infinite;
-    animation: animateRight 2s ease-in-out infinite;
-}
-
-@-webkit-keyframes animateRight {
-    0% {
-        -webkit-transform: translate(-20px, 0);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        -webkit-transform: translate(20px, 0);
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes animateRight {
-    0% {
-        -moz-transform: translate(-20px, 0);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        -moz-transform: translate(20px, 0);
-        opacity: 0;
-    }
-}
-
-@keyframes animateRight {
-    0% {
-        transform: translate(-20px, 0);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(20px, 0);
-        opacity: 0;
-    }
-}}
 
 @media screen and (min-width: 0px) and (max-width: 767px) {
     .arrowleft {
