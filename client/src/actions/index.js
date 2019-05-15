@@ -79,10 +79,10 @@ export const confirmBooking = (booking) => async dispatch => {
             showing: booking.selectedShowing,
             seats: booking.selectedSeats,
             person: {
-                first_name: booking.person.first_name,
-                last_name: booking.person.last_name,
+                first_name: booking.person.firstName,
+                last_name: booking.person.lastName,
                 email: booking.person.email,
-                phone_number: booking.person.phone_number
+                phone_number: booking.person.phone
             }
         });
     dispatch({ type: 'BOOKING_CONFIRMED', payload: booking });

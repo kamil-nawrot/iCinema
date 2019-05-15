@@ -9,6 +9,7 @@ class PlaceSelection extends React.Component
     constructor(props) {
         super(props);
         this.props.findBookings(this.props.selectedMovie.id, this.props.selectedShowing);
+        console.log(this.props.foundBookings);
         this.state = {
             place: [
                 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10',
@@ -32,9 +33,16 @@ class PlaceSelection extends React.Component
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props.selectedSeats !== prevProps.selectedSeats) {
-            //console.log(this.props.selectedSeats);
+        if (this.props.selectedSeats !== prevProps.selectedSeats) {
             this.setState({placeChecked: this.props.selectedSeats});
+        }
+        if (this.props !== prevProps) {
+            this.setState({
+                placeReserved: this.props.foundBookings.map(booking => {
+                    return booking.seats;
+                })
+                .flat()
+            });
         }
     }
 

@@ -5,7 +5,8 @@ import { NavLink } from 'react-router-dom';
 
 import { addPersonalInfo } from '../actions';
 
-class PersonalInfo extends React.Component {
+class PersonalInfo extends React.Component 
+{
     renderError({ error, touched, focused }){
         if (touched && error) {
             return(
@@ -28,12 +29,7 @@ class PersonalInfo extends React.Component {
     }
 
     onSubmit = formValues => {
-        var firstNameVal = formValues.firstName;
-        var lastNameVal = formValues.lastName;
-        var emailVal = formValues.email;
-        var phoneVal = formValues.phone;
         this.props.addPersonalInfo(formValues);
-        console.log(this.props.person);
     }
 
     render(){
@@ -47,7 +43,7 @@ class PersonalInfo extends React.Component {
                     <Field name="email" component={this.renderInput} label="EMail" inputType="text" />
                     <Field name="phone" component={this.renderInput} label="Phone Number" inputType="tel" />
                     <h3>Warning! Entering false data could cause you refusal of lounching the ticket.</h3>
-                    <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>CONFIRM</button>
+                    <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>SAVE</button>
                 </form>
                 <NavLink className = "arrowright" to = "/confirmation" > <i className = "fas fa-angle-double-right"> </i></NavLink>
             </div>
@@ -89,5 +85,6 @@ PersonalInfo = connect(mapStateToProps, { addPersonalInfo })(PersonalInfo);
 
 export default reduxForm({
     form: 'personalInfo',
-    validate
+    validate,
+    destroyOnUnmount: false
 })(PersonalInfo)

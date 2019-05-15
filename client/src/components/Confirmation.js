@@ -7,6 +7,8 @@ import { confirmBooking } from '../actions'
 class Confirmation extends React.Component
 {
     render() {
+        console.log(this.props.person);
+
         return (
             <div className = "container" id = "personal-info-box" >
             <hr></hr>
@@ -39,7 +41,8 @@ const mapStateToProps = state => {
         region: state.region,
         selectedMovie: state.selectedMovie,
         selectedShowing: state.selectedShowing,
-        selectedSeats: state.selectedSeats
+        selectedSeats: state.selectedSeats,
+        person: state.person
     }
 }
 
