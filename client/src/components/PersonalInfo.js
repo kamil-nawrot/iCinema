@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { NavLink } from 'react-router-dom';
+
+import { addPersonalInfo } from '../actions';
 
 class PersonalInfo extends React.Component {
     renderError({ error, touched, focused }){
@@ -24,31 +27,16 @@ class PersonalInfo extends React.Component {
         );
     }
 
-    onSubmit(formValues){
+    onSubmit = formValues => {
         var firstNameVal = formValues.firstName;
         var lastNameVal = formValues.lastName;
         var emailVal = formValues.email;
         var phoneVal = formValues.phone;
-        formValues.firstName = '';
-        formValues.lastName = '';
-        formValues.email = '';
-        formValues.phone = '';
+        this.props.addPersonalInfo(formValues);
+        console.log(this.props.person);
     }
 
     render(){
-        if (!this.props.selectedMovie || !this.props.selectedShowing) {  
-            return (
-                <div className="container" style={{ backgroundColor: "rgba(34, 34, 34, 0.3)" }}> 
-                <NavLink className = "arrowleft" to = "/tickets" > <i className = "fas fa-angle-double-left"> </i></NavLink>
-                    <div className="option">
-                        <div className="empty" style={{ backgroundColor: "rgba(0,0,0,0)" }}>
-                            You have to choose movie and showing time first
-                        </div>
-                    </div>
-                    <NavLink className = "arrowright" to = "/personal-details"> <i className = "fas fa-angle-double-right"> </i></NavLink>
-                </div>
-            );
-        }
         return (
             <div className="container" id="personal-info-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
             <NavLink className = "arrowleft" to = "/seats"> <i className = "fas fa-angle-double-left"> </i></NavLink>
@@ -90,6 +78,14 @@ const validate = formValues => {
     }
     return errors;
 }
+
+const mapStateToProps = state => {
+    return {
+        person: state.person
+    };
+}
+
+PersonalInfo = connect(mapStateToProps, { addPersonalInfo })(PersonalInfo);
 
 export default reduxForm({
     form: 'personalInfo',
