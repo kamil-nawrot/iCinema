@@ -35,16 +35,18 @@ class PersonalInfo extends React.Component
     render(){
         return (
             <div className="container" id="personal-info-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
-            <NavLink className = "arrowleft" to = "/seats"> <i className = "fas fa-angle-double-left"> </i></NavLink>
-                <h1>Enter your personal data</h1>
-                <form id="personal-info" onSubmit={this.props.handleSubmit(this.onSubmit)} >
-                    <Field name="firstName" component={this.renderInput} label="First Name" inputType="text" />
-                    <Field name="lastName" component={this.renderInput} label="Last Name" inputType="text" />
-                    <Field name="email" component={this.renderInput} label="EMail" inputType="text" />
-                    <Field name="phone" component={this.renderInput} label="Phone Number" inputType="tel" />
-                    <h3>Warning! Entering false data could cause you refusal of lounching the ticket.</h3>
-                    <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>SAVE</button>
-                </form>
+                <NavLink className = "arrowleft" to = "/seats"> <i className = "fas fa-angle-double-left"> </i></NavLink>
+                <div className="personal-container">
+                    <h1>Enter your personal data</h1>
+                    <form id="personal-info" onSubmit={this.props.handleSubmit(this.onSubmit)} >
+                        <Field name="firstName" component={this.renderInput} label="First Name" inputType="text" />
+                        <Field name="lastName" component={this.renderInput} label="Last Name" inputType="text" />
+                        <Field name="email" component={this.renderInput} label="EMail" inputType="text" />
+                        <Field name="phone" component={this.renderInput} label="Phone Number" inputType="tel" />
+                        <h3>Warning! Entering false data could cause you refusal of lounching the ticket.</h3>
+                        <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>BOOK</button>
+                    </form>
+                </div>
                 <NavLink className = "arrowright" to = "/confirmation" > <i className = "fas fa-angle-double-right"> </i></NavLink>
             </div>
         );
