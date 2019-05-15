@@ -20,11 +20,11 @@ class TicketSelection extends React.Component {
 
 
     renderTickets(){
-
+        console.log(this.props.region);
         return(
             <div className="container" id="tickets-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
                 <h1>Choose your tickets here.</h1>
-                <form id="tickets-info" onSubmit={() => this.onFormSubmit()} >
+                <form id="tickets-info" onSubmit={(e) => this.onFormSubmit(e)} >
                     <div className="ticket-field">
                         <label>Junior Tickets Number</label>
                         <NumericInput id="numeric-input"
@@ -82,8 +82,9 @@ const mapStateToProps = state => {
         juniorNumber: state.juniorNumber,
         studentNumber: state.studentNumber,
         normalNumber: state.normalNumber,
-        seniorNumber: state.seniorNumber
+        seniorNumber: state.seniorNumber,
+        region: state.region
      };
 }
 
-export default connect(mapStateToProps, { selectRegion, selectMovie, selectShowing})(TicketSelection);
+export default connect(mapStateToProps)(TicketSelection);
