@@ -842,6 +842,16 @@ a {
     box-sizing: border-box;
 }
 
+.personal-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 2em auto;
+}
+
 #personal-info-box h1{
     text-align: center;
     color: #DDD;
@@ -930,12 +940,12 @@ a {
         margin: 10px;
     }
 
-    #personal-info-box h1 {
-        margin: 10px;
-    }
-
     #personal-info>div {
         justify-content: center;
+    }
+
+    .personal-container {
+        margin-top: 10em;
     }
 
     .error-message {
