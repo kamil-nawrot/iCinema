@@ -54,6 +54,13 @@ export const selectShowing = (showing) => {
     }
 }
 
+export const selectTickets = (tickets) => {
+    return {
+        type: 'TICKETS_SELECTED',
+        payload: tickets
+    }
+}
+
 export const selectSeats = (seats) => {
     return {
         type: 'SEATS_SELECTED',

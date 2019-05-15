@@ -6,6 +6,12 @@ import { selectRegion, selectMovie, selectShowing, selectSeats } from '../action
 
 class RegionSelection extends React.Component
 {
+    componentDidMount() {
+        if (!this.props.region) {
+            this.props.selectRegion('us', 'en-US');
+        }
+    }
+    
     componentDidUpdate(prevProps) {
         if (this.props.region !== prevProps.region) {
             this.props.selectMovie('');
@@ -37,6 +43,8 @@ class RegionSelection extends React.Component
                 <div className="option" style={{flexWrap: "nowrap"}}>
                     <h2> Welcome to our online cinema tickets booking app </h2>
                     <h3> Please select your region and language and we can proceed </h3>
+                    <h4> <em>if you don't check any region, we'll use default (en-US)</em> </h4>
+                    
                     <div className="option-wrapper">
                         {this.renderOptions()}
                     </div>

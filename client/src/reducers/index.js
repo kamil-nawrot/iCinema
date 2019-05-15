@@ -50,6 +50,13 @@ const selectedShowingReducer = (selectedShowing = '', action) => {
     }
 }
 
+const ticketsReducer = (tickets = {}, action) => {
+    switch (action.type) {
+        case 'TICKETS_SELECTED': return action.payload;
+        default: return tickets;
+    }
+}
+
 const selectedSeatsReducer = (selectedSeats = [], action) => {
     switch (action.type) {
         case 'SEATS_SELECTED': return action.payload;
@@ -86,6 +93,7 @@ export default combineReducers({
     selectedMovie: selectedMovieReducer,
     schedule: scheduleReducer,
     selectedShowing: selectedShowingReducer,
+    tickets: ticketsReducer,
     selectedSeats: selectedSeatsReducer,
     booking: bookingReducer,
     foundBookings: findBookingsReducer,

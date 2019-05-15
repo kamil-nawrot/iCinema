@@ -9,7 +9,7 @@ class PlaceSelection extends React.Component
     constructor(props) {
         super(props);
         this.props.findBookings(this.props.selectedMovie.id, this.props.selectedShowing);
-        console.log(this.props.foundBookings);
+        console.log(this.props.tickets);
         this.state = {
             place: [
                 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10',
@@ -27,9 +27,9 @@ class PlaceSelection extends React.Component
                 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8', 'E9', 'E10',
                 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10'
             ],
-            placeChecked: this.props.selectedSeats,
+            placeChecked: this.props.tickets.quantity >= this.props.selectedSeats.length ? this.props.selectedSeats : [],
             placeReserved: this.props.foundBookings,
-            maxChecked: 5
+            maxChecked: this.props.tickets.quantity
         };
     }
 
@@ -173,7 +173,8 @@ const mapStateToProps = state => {
         selectedSeats: state.selectedSeats,
         selectedMovie: state.selectedMovie,
         selectedShowing: state.selectedShowing,
-        foundBookings: state.foundBookings
+        foundBookings: state.foundBookings,
+        tickets: state.tickets
     };
 }
                             

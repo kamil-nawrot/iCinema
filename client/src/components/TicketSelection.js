@@ -4,54 +4,54 @@ import { connect } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
 
-import { selectRegion, selectMovie, selectShowing } from '../actions';
+import { selectTickets } from '../actions';
 
-class TicketSelection extends React.Component {
-
-    state = {
-            juniorNumber: 0,
-            studentNumber: 0,
-            normalNumber: 0,
-            seniorNumber: 0,
-    };
+class TicketSelection extends React.Component 
+{
+    constructor(props) {
+        super(props);
+        console.log(this.props.tickets);
+        this.state = {
+            juniorNumber: this.props.tickets.juniorNumber || 0,
+            studentNumber: this.props.tickets.studentNumber || 0,
+            normalNumber: this.props.tickets.normalNumber || 0,
+            seniorNumber: this.props.tickets.seniorNumber || 0,
+            totalPrice: this.props.tickets.totalPrice || 0,
+            quantity: this.props.tickets.quantity || 0
+        };
+    }
 
     onFormSubmit = event =>{
         event.preventDefault();
-        console.log(this.state.juniorNumber);
+        var total_value = this.calcTotalPrice(this.state);
+        var total_quantity = this.state.juniorNumber + this.state.normalNumber + this.state.studentNumber + this.state.seniorNumber;
+        console.log('total quantity: ' + total_quantity); 
+        this.setState({totalPrice: total_value, quantity: total_quantity});
+        this.props.selectTickets(this.state);
+    }
+
+    componentDidUpdate(prevProps) {
+        this.props.selectTickets(this.state);
     }
 
     currency(param) {
-        if (param.region === 'PL'){
-            console.log("pl");
-            return 'PLN'
-        } else if(param.region === 'us'){
-            return 'USD'
-        } else if (param.region === 'gb' ){
-            return "GPB"
-        } else if (param.region === 'fr' ){
-            return "EUR"
-        }else if (param.region === 'es' ){
-            return"EUR"
-        }else if (param.region === 'de' ){
-            return "EUR"
-        }else {
-            return ''
-        }
-
+        if (param.region === 'PL') return 'PLN';
+        else if (param.region === 'gb' ) return "GPB"
+        else if (param.region === 'fr' || param.region === 'es' || param.region === 'de' ) return "EUR"
+        else return 'USD';
     };
     
-    total(param){
+    calcTotalPrice(param){
         return (param.juniorNumber*5) + (param.studentNumber*3) +
         (param.normalNumber*10) + (param.seniorNumber*3) 
     }
 
-    renderTickets(){
-        var total_value = this.total(this.state);
+    render(){
         var curr = this.currency(this.props.region);
         return(
             <div className="container" id="tickets-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
             <NavLink className = "arrowleft" to="/schedule"> <i className = "fas fa-angle-double-left"> </i></NavLink>
-                <h1>Choose your tickets here.</h1>
+                <h1>Choose your tickets here</h1>
                 <form id="tickets-info" onSubmit={(e) => this.onFormSubmit(e)} >
                     <div className="ticket-field">
                         <label>Junior Ticket (5 {curr}) </label>
@@ -59,7 +59,7 @@ class TicketSelection extends React.Component {
                             min={0} 
                             max={20} 
                             value={this.state.juniorNumber}
-                            onChange={this._handleUpdate} 
+                            onChange={e => this.setState({juniorNumber: e})} 
                             />
                     </div>
                     <div className="ticket-field">
@@ -68,6 +68,7 @@ class TicketSelection extends React.Component {
                             min={0} 
                             max={20} 
                             value={this.state.studentNumber}
+                            onChange={e => this.setState({studentNumber: e})} 
                             />
                     </div>
                     <div className="ticket-field">
@@ -76,6 +77,7 @@ class TicketSelection extends React.Component {
                             min={0} 
                             max={20} 
                             value={this.state.normalNumber}
+                            onChange={e => this.setState({normalNumber: e})} 
                             />
                     </div>
                     <div className="ticket-field">
@@ -84,33 +86,26 @@ class TicketSelection extends React.Component {
                             min={0} 
                             max={20} 
                             value={this.state.seniorNumber}
+                            onChange={e => this.setState({seniorNumber: e})} 
                             />
                     </div>
                     <div className="sum-field">
                         <label>Full price:</label>
-                        <label>{total_value}  {curr}</label>
+                        <label>{this.calcTotalPrice(this.state)}  {curr}</label>
                     </div>
-                    <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>CONFIRM</button>
+                    <button className="nav-button" id="confirm-btn" style={{width: "100%"}}>SAVE</button>
                 </form>
                 <NavLink className="arrowright" to="/seats"> <i className="fas fa-angle-double-right"> </i></NavLink>
             </div>
         );
     }
-
-    
-    render(){
-        return  <div className="option">{this.renderTickets()}</div>    
-    }
 }
 
 const mapStateToProps = state => {
     return { 
-        juniorNumber: state.juniorNumber,
-        studentNumber: state.studentNumber,
-        normalNumber: state.normalNumber,
-        seniorNumber: state.seniorNumber,
-        region: state.region
+        region: state.region,
+        tickets: state.tickets
      };
 }
 
-export default connect(mapStateToProps)(TicketSelection);
+export default connect(mapStateToProps, { selectTickets })(TicketSelection);
