@@ -321,9 +321,60 @@ a {
     .nav-button {
         padding: 10px 10px;
     }
+
+    .list-details {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .list-details img {
+        width: 50%;
+        height: 50%;
+        background-size: cover;
+    }
+
+    .list-details .info::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .list-details .info::-webkit-scrollbar-track {
+        appearance: none;
+        background-color: #222;
+    }
+
+    .list-details .info::-webkit-scrollbar-thumb {
+        appearance: none;
+        background-color: #960018;
+    }
+
+    .list {
+        width: 100%;
+        height: 50%;
+        box-sizing: border-box;
+    }
+
+    .list::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .list::-webkit-scrollbar-track {
+        appearance: none;
+        background-color: #222;
+    }
+
+    .list::-webkit-scrollbar-thumb {
+        appearance: none;
+        background-color: #960018;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
     .nav {
         flex-wrap: nowrap;
     }
