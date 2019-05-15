@@ -43,7 +43,7 @@ class PersonalInfo extends React.Component
                     <Field name="email" component={this.renderInput} label="EMail" inputType="text" />
                     <Field name="phone" component={this.renderInput} label="Phone Number" inputType="tel" />
                     <h3>Warning! Entering false data could cause you refusal of lounching the ticket.</h3>
-                    <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>SAVE</button>
+                    <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>BOOK</button>
                 </form>
                 <NavLink className = "arrowright" to = "/confirmation" > <i className = "fas fa-angle-double-right"> </i></NavLink>
             </div>
