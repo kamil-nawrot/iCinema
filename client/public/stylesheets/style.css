@@ -819,6 +819,7 @@ a {
 }
 
 .sum-field{
+    width: 100%;
     display: inline-block;
     position: relative;
     margin: 10px;
@@ -834,7 +835,7 @@ a {
     border: 2px solid #222;
     height: 40px;
     margin: 5px;
-    max-width: 60px;
+    max-width: 100px;
     padding: 3px 8px;
     font-size: 1em;
     color: #888;
