@@ -28,7 +28,8 @@ class PlaceSelection extends React.Component
                 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10'
             ],
             placeChecked: this.props.selectedSeats,
-            placeReserved: this.props.foundBookings
+            placeReserved: this.props.foundBookings,
+            maxChecked: 5
         };
     }
 
@@ -59,7 +60,9 @@ class PlaceSelection extends React.Component
                         .placeChecked
                         .filter(res => res !== place)
                 });
-            } else {
+            } else if (this.state.placeChecked.length < this.state.maxChecked) {
+                console.log(this.state.placeChecked.length);
+                console.log(this.state.maxChecked);
                 this.setState({
                     placeChecked: this
                         .state
