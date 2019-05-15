@@ -50,6 +50,7 @@ class TicketSelection extends React.Component {
         var curr = this.currency(this.props.region);
         return(
             <div className="container" id="tickets-box" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
+            <NavLink className = "arrowleft" to="/schedule"> <i className = "fas fa-angle-double-left"> </i></NavLink>
                 <h1>Choose your tickets here.</h1>
                 <form id="tickets-info" onSubmit={(e) => this.onFormSubmit(e)} >
                     <div className="ticket-field">
@@ -91,21 +92,14 @@ class TicketSelection extends React.Component {
                     </div>
                     <button className="nav-button" id="confirm-btn" style={{width: "50%"}}>CONFIRM</button>
                 </form>
+                <NavLink className="arrowright" to="/seats"> <i className="fas fa-angle-double-right"> </i></NavLink>
             </div>
         );
     }
 
     
     render(){
-        return (
-            <div className="container" style={{backgroundColor: 'rgba(34,34,34,0.3)'}}>
-            <NavLink className = "arrowleft" to="/schedule"> <i className = "fas fa-angle-double-left"> </i></NavLink>
-                <div className="option">
-                    {this.renderTickets()}
-                </div>
-                <NavLink className="arrowright" to="/seats"> <i className="fas fa-angle-double-right"> </i></NavLink>
-            </div>
-        );
+        return  <div className="option">{this.renderTickets()}</div>    
     }
 }
 
