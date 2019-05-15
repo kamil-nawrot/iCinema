@@ -10,27 +10,24 @@ class Confirmation extends React.Component
         console.log(this.props.person);
 
         return (
-            <div className = "container" id = "personal-info-box" >
-            <hr></hr>
+            <div className = "container" id = "personal-info-box">
             <h1>Confirm your reservation</h1>
-            <hr></hr>
-            <h2>Movie info</h2>
-            <hr></hr>
-            <p>Movie:</p>
-            <p>Time: </p>
-            <p>Ticket: </p>
-            <p>Seat: </p>
-            <hr></hr>
-            <h2>Personal info:</h2>
-            <hr></hr>
-            <p>First name: </p>
-            <p>Last name: </p>
-            <p>E-mail: </p>
-            <p>Phone: </p>
+            <h3>Movie info</h3>
+            <p>Movie: {this.props.selectedMovie.title} </p> 
+            <p>Time: {this.props.selectedShowing.substring(0,10)} {this.props.selectedShowing.substring(11,16)}</p>
+            <p>Tickets: </p>
+            <p>Seats: {this.props.selectedSeats.join(", ")}</p>
+            <p>Total to pay: </p>
+            <h3>Personal info:</h3>
+            <p>First name: {this.props.person.firstName}</p>
+            <p>Last name: {this.props.person.lastName}</p>
+            <p>E-mail: {this.props.person.email}</p>
+            <p>Phone: {this.props.person.phone} </p> 
             <NavLink className = "arrowleft" to = "/personal-details"> <i className = "fas fa-angle-double-left"> </i></NavLink>
                 <button className="option-button" onClick={() => {
                     this.props.confirmBooking(this.props);
-                }}> Confirm changes </button>
+                    console.log(this.props)
+                }}> Confirm reservation </button>
             </div>
         );
     }
