@@ -759,26 +759,49 @@ a {
     margin: 10px 20px 30px 20px;
 }
 
+.ticket-field{
+    position: relative;
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.sum-field{
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    margin-bottom: 20px;
+    
+
+}
+
+
 #numeric-input{
     flex: 2;
     background-color: #222;
     border: 2px solid #222;
-    height: 25px;
-    max-width: 290px;
+    height: 40px;
+    margin: 5px;
+    max-width: 60px;
     padding: 3px 8px;
     font-size: 1em;
     color: #888;
     transition: all 0.2s ease-out;
+    text-align: right;
 }
 
 #tickets-info>div>label{
     flex: 1;
     margin: 5px;
     font-size: 1.2em;
-    text-align: right;
+    text-align: left;
     width: 210px;
     min-width: 130px;
 }
+
+
+
 
 /* Personal info styling */
 
