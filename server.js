@@ -5,6 +5,11 @@ const app = express();
 
 const { getBookings, addBooking } = require('./db');
 
+const PORT = process.env.PORT || 5000;
+
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(buildPath));
+
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -41,6 +46,6 @@ app.get('/api/bookings', getBookings);
 
 app.post('/api/bookings', addBooking);
 
-app.listen(3001, () => {
-    console.log('Server listening on port 3001...');
+app.listen(PORT, () => {
+    console.log('Server listening...');
 });
