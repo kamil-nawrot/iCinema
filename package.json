@@ -28,7 +28,7 @@
     "redux-form": "^8.1.0"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
+    "concurrently": "^4.1.2",
     "eslint": "^5.16.0"
   }
 }
